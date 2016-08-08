@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{47C740C4-7747-4353-AF49-FF95F8DD1617}</ProjectGuid>
+    <RootNamespace>Platformer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(LIBSDIR)\sdl\SDL2\2.0.4\include;$(LIBSDIR)\jsoncpp\1.7\include;$(LIBSDIR)\jsoncpp\1.6.5\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(LIBSDIR)\sdl\SDL2\2.0.4\lib\x86;$(LIBSDIR)\jsoncpp\1.7\lib\x86.debug;$(LIBSDIR)\jsoncpp\1.6.5\lib\x86.Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;lib_json.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="sources/BlocBonus.cpp" />
+    <ClCompile Include="sources/BonusMushroom.cpp" />
+    <ClCompile Include="sources/CoinBonus.cpp" />
+    <ClCompile Include="sources/EnemyMushroom.cpp" />
+    <ClCompile Include="sources/Input.cpp" />
+    <ClCompile Include="sources/Item.cpp" />
+    <ClCompile Include="sources/ImageLibrary.cpp" />
+    <ClCompile Include="sources/ItemHelper.cpp" />
+    <ClCompile Include="sources/main.cpp" />
+    <ClCompile Include="sources/MainMenu.cpp" />
+    <ClCompile Include="sources/Map.cpp" />
+    <ClCompile Include="sources/Map_testTileCollision.cpp" />
+    <ClCompile Include="sources/MobilePlatform.cpp" />
+    <ClCompile Include="sources/PlayerAvatar.cpp" />
+    <ClCompile Include="sources/SoundPlayer.cpp" />
+    <ClCompile Include="sources/Sprite.cpp" />
+    <ClCompile Include="sources/SpriteAnimation.cpp" />
+    <ClCompile Include="sources/Level.cpp" />
+    <ClCompile Include="sources/LoadHelper.cpp" />
+    <ClCompile Include="sources\ItemsTypesListing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sources/BlocBonus.h" />
+    <ClInclude Include="sources/BonusMushroom.h" />
+    <ClInclude Include="sources/CoinBonus.h" />
+    <ClInclude Include="sources/Color.h" />
+    <ClInclude Include="sources/EnemyMushroom.h" />
+    <ClInclude Include="sources/FPoint.h" />
+    <ClInclude Include="sources/Input.h" />
+    <ClInclude Include="sources/Item.h" />
+    <ClInclude Include="sources/ImageLibrary.h" />
+    <ClInclude Include="sources/ItemHelper.h" />
+    <ClInclude Include="sources/MainMenu.h" />
+    <ClInclude Include="sources/Map.h" />
+    <ClInclude Include="sources/MobilePlatform.h" />
+    <ClInclude Include="sources/PlayerAvatar.h" />
+    <ClInclude Include="sources/Point.h" />
+    <ClInclude Include="sources/Rectangle.h" />
+    <ClInclude Include="sources/Size.h" />
+    <ClInclude Include="sources/SoundPlayer.h" />
+    <ClInclude Include="sources/Sprite.h" />
+    <ClInclude Include="sources/SpriteAnimation.h" />
+    <ClInclude Include="sources/Level.h" />
+    <ClInclude Include="sources/LoadHelper.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

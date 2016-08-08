@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Platformer">
+      <UniqueIdentifier>{55a403fc-0176-4492-83e5-e9e97d6c49d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Platformer">
+      <UniqueIdentifier>{fe7fc731-5abb-45d2-96b3-0be7fae934b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Structs">
+      <UniqueIdentifier>{50bb1661-ef2b-478f-bf33-ebf413b21956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Images">
+      <UniqueIdentifier>{b036ddd5-7d46-43ba-8932-bc92ac103cd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Images">
+      <UniqueIdentifier>{36d6b55c-193a-49d9-bb94-d20bb6835b50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Menu">
+      <UniqueIdentifier>{bb7e5979-f616-447e-88ed-862a682bb582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Menu">
+      <UniqueIdentifier>{11c6405a-e11f-4398-982d-2e9b313c555c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Platformer\Items">
+      <UniqueIdentifier>{4a57e640-f1cc-4164-8ceb-ba136234080e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Platformer\Items">
+      <UniqueIdentifier>{8ff529c6-18a4-480b-9ff9-e36c6aa30474}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sources/Input.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/SoundPlayer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/BlocBonus.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/BonusMushroom.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/CoinBonus.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/EnemyMushroom.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/ImageLibrary.cpp">
+      <Filter>Fichiers sources\Images</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/Item.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/ItemHelper.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/Level.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/LoadHelper.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/MainMenu.cpp">
+      <Filter>Fichiers sources\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/Map.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/Map_testTileCollision.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/Sprite.cpp">
+      <Filter>Fichiers sources\Images</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/SpriteAnimation.cpp">
+      <Filter>Fichiers sources\Images</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/PlayerAvatar.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources/MobilePlatform.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\ItemsTypesListing.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sources/Input.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/SoundPlayer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/LoadHelper.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/BlocBonus.h">
+      <Filter>Fichiers d%27en-tête\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/BonusMushroom.h">
+      <Filter>Fichiers d%27en-tête\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Color.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Level.h">
+      <Filter>Fichiers d%27en-tête\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/FPoint.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Point.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Size.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Rectangle.h">
+      <Filter>Fichiers d%27en-tête\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Item.h">
+      <Filter>Fichiers d%27en-tête\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/CoinBonus.h">
+      <Filter>Fichiers d%27en-tête\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/EnemyMushroom.h">
+      <Filter>Fichiers d%27en-tête\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Map.h">
+      <Filter>Fichiers d%27en-tête\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/Sprite.h">
+      <Filter>Fichiers d%27en-tête\Images</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/SpriteAnimation.h">
+      <Filter>Fichiers d%27en-tête\Images</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/ImageLibrary.h">
+      <Filter>Fichiers d%27en-tête\Images</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/ItemHelper.h">
+      <Filter>Fichiers d%27en-tête\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/PlayerAvatar.h">
+      <Filter>Fichiers d%27en-tête\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/MobilePlatform.h">
+      <Filter>Fichiers d%27en-tête\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources/MainMenu.h">
+      <Filter>Fichiers d%27en-tête\Menu</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
