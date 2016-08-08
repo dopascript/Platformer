@@ -69,7 +69,7 @@ void PlayerAvatar::init()
 
 	setSprite(lPlayerSprite);
 
-	mIsUntouchable = false;
+	mUntouchable = false;
 	mUntouchableRemainingTime = 0;
 	mUsingParachute = false;
 
@@ -111,7 +111,7 @@ void PlayerAvatar::update(unsigned int pTicks)
 
 void PlayerAvatar::hit(unsigned int pTicks)
 {
-	if (mIsUntouchable)
+	if (mUntouchable)
 	{
 		return;
 	}
@@ -123,13 +123,13 @@ void PlayerAvatar::hit(unsigned int pTicks)
 		break;
 	case PlayerAvatarState_Big:
 		setForm(PlayerAvatarState_Tiny);
-		mIsUntouchable = true;
+		mUntouchable = true;
 		mUntouchableStartTime = pTicks;
 		mUntouchableRemainingTime = 2000;
 		break;
 	case PlayerAvatarState_Raccoon:
 		setForm(PlayerAvatarState_Big);
-		mIsUntouchable = true;
+		mUntouchable = true;
 		mUntouchableStartTime = pTicks;
 		mUntouchableRemainingTime = 2000;
 		break;
@@ -140,11 +140,11 @@ void PlayerAvatar::hit(unsigned int pTicks)
 
 void PlayerAvatar::updateSpecialAppearance(unsigned int pTicks)
 {
-	if (mIsUntouchable)
+	if (mUntouchable)
 	{
 		if ((int)pTicks - mUntouchableStartTime > mUntouchableRemainingTime)
 		{
-			mIsUntouchable = false;
+			mUntouchable = false;
 			mDrawColor = Color(255, 255, 255, 255);
 		}
 		else
@@ -157,32 +157,105 @@ void PlayerAvatar::updateSpecialAppearance(unsigned int pTicks)
 void PlayerAvatar::updateMoves(unsigned int pTicks)
 {
 	Point lBottomPosition(mPosition.x, mPosition.y + 1);
+	Point lBottomLeftPosition(mPosition.x - (mHitBox.width / 2), mPosition.y + 1);
+	Point lBottomRightPosition(mPosition.x + (mHitBox.width / 2), mPosition.y + 1);
 	bool lIsOnSolid = testHit(lBottomPosition, mSpeed, CollisionTest_MapAndItems);
-
+	TileCollision lBottomLeftCollision = mLevel->getCollisionMap()->getTileCollisionAtPosition(lBottomLeftPosition);
+	TileCollision lBottomRightCollision = mLevel->getCollisionMap()->getTileCollisionAtPosition(lBottomRightPosition);
 	//Horizontal move
 	float lSpeedX = mSpeed.x;
+	mCrouched = false;
+	bool lRunning = Input::getInstance()->isKeyDown(SDL_SCANCODE_LCTRL);
+	if (lIsOnSolid)
+	{	
+		bool lWantToMove = false;
+		if (Input::getInstance()->isKeyDown(SDL_SCANCODE_DOWN))
+		{
+			TileCollision lCurrentTileCollision = lBottomLeftCollision;
+			if (lBottomRightCollision != TileCollision::TileCollision_None)
+			{
+				lCurrentTileCollision = lBottomRightCollision;
+			}
 
-	if (Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT))
-	{
-		lSpeedX -= lIsOnSolid ? 0.8f : 0.35f;
-		mSprite.setHorizontalFlip(false);
-		mSprite.playAnimation(mRunAnimation);
-	}
-	else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT))
-	{
-		lSpeedX += lIsOnSolid ? 0.8f : 0.35f;
-		mSprite.setHorizontalFlip(true);
-		mSprite.playAnimation(mRunAnimation);
-	}
-	else if (lIsOnSolid)
-	{
-		if (lSpeedX < -1.0f) lSpeedX += 0.9f;
-		else if (lSpeedX > 1.0f) lSpeedX -= 0.9f;
-		else lSpeedX = 0.0f;
-	}
-	lSpeedX = std::min(std::max(lSpeedX, -6.0f), 6.0f);
+			switch (lCurrentTileCollision)
+			{
+			case TileCollision_Angle45:
+			case TileCollision_Angle135:
+			case TileCollision_Angle112_1:
+			case TileCollision_Angle112_2:
+			case TileCollision_Angle22_1:
+			case TileCollision_Angle22_2:
 
-	if (std::abs(lSpeedX) < 0.01f)
+				break;
+			default:
+				mCrouched = true;
+				mSprite.setFrame(mCrouchedFrame);
+				break;
+			}
+			
+		}
+		else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT))
+		{
+			if (lRunning)
+			{
+				lSpeedX -= 0.8f;
+			}
+			else
+			{
+				lSpeedX -= 0.4f;
+			}
+			
+			mSprite.setHorizontalFlip(false);
+			mSprite.playAnimation(mRunAnimation);
+			lWantToMove = true;
+		}
+		else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT))
+		{
+			if (lRunning)
+			{
+				lSpeedX -= 0.8f;
+			}
+			else
+			{
+				lSpeedX -= 0.4f;
+			}
+			mSprite.setHorizontalFlip(true);
+			mSprite.playAnimation(mRunAnimation);
+			lWantToMove = true;
+		}
+		if(!lWantToMove)
+		{
+			if (lSpeedX < -1.0f) lSpeedX += 0.9f;
+			else if (lSpeedX > 1.0f) lSpeedX -= 0.9f;
+			else lSpeedX = 0.0f;
+		}
+	}
+	else
+	{
+		if (Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT))
+		{
+			lSpeedX -= lIsOnSolid ? 0.8f : 0.35f;
+			mSprite.setHorizontalFlip(false);
+			mSprite.playAnimation(mRunAnimation);
+		}
+		else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT))
+		{
+			lSpeedX += lIsOnSolid ? 0.8f : 0.35f;
+			mSprite.setHorizontalFlip(true);
+			mSprite.playAnimation(mRunAnimation);
+		} 
+	}
+	if (lRunning)
+	{
+		lSpeedX = std::min(std::max(lSpeedX, -7.0f), 7.0f);
+	}
+	else
+	{
+		lSpeedX = std::min(std::max(lSpeedX, -4.0f), 4.0f);
+	}
+	
+
+	if (std::abs(lSpeedX) < 0.01f && !mCrouched)
 	{
 		mSprite.setFrame(mWaitFrame);
 	}
@@ -253,12 +326,14 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 	case PlayerAvatarState_Tiny:
 		mJumpFrame = 3;
 		mWaitFrame = 0;
+		mCrouchedFrame = 0;
 		mRunAnimation = "run_tiny";
 		setHitBox(Rectangle(13, 15, -6, -15));
 	break;
 	case PlayerAvatarState_Big:
 		mJumpFrame = 33;
 		mWaitFrame = 30;
+		mCrouchedFrame = 34;
 		mRunAnimation = "run";
 
 		setHitBox(Rectangle(13, 26, -6, -26));
@@ -266,6 +341,7 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 	case PlayerAvatarState_Raccoon:
 		mJumpFrame = 93;
 		mWaitFrame = 90;
+		mCrouchedFrame = 94;
 		mRunAnimation = "run_raccoon";
 
 		setHitBox(Rectangle(13, 26, -6, -26));

@@ -124,6 +124,13 @@ bool Map::testHit(Rectangle pHitBox, FPoint pDirection)
 	return false;
 }
 
+TileCollision Map::getTileCollisionAtPosition(Point pPosition)
+{
+	int lX = pPosition.x / mTileSize;
+	int lY = pPosition.y / mTileSize;
+	return (TileCollision)mTiles[lY * mSize.width + lX];
+}
+
 void Map::draw(SDL_Renderer *pSDL_Renderer, Point &pCameraShift, Rectangle &pScreenHitBox)
 {
 	SDL_Rect lTextureRectangle;

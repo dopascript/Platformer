@@ -29,15 +29,17 @@ namespace Platformer
 
 		int mJumpFrame;
 		int mWaitFrame;
+		int mCrouchedFrame;
 		std::string mRunAnimation;
 
 		bool mIsDead;
 
-		bool mIsUntouchable;
+		bool mUntouchable;
 		int mUntouchableStartTime;
 		int mUntouchableRemainingTime;
 
 		bool mUsingParachute;
+		bool mCrouched;
 	};
 }
 
