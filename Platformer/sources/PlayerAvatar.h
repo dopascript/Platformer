@@ -37,7 +37,7 @@ namespace Platformer
 		int mUntouchableStartTime;
 		int mUntouchableRemainingTime;
 
-		int mLastTailUseTime;
+		bool mUsingParachute;
 	};
 }
 

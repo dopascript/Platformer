@@ -16,7 +16,7 @@ void PlayerAvatar::init()
 	lPlayerSprite.setTexture(lPlayerTexture);
 	lPlayerSprite.setSize(Size(32, 32));
 	lPlayerSprite.setSpriteCountY(10);
-	lPlayerSprite.setOrigin(Point(11, 31));
+	lPlayerSprite.setOrigin(Point(16, 31));
 
 	SpriteAnimation lAnimation_run("run");
 	lAnimation_run.addFrame(30);
@@ -55,11 +55,23 @@ void PlayerAvatar::init()
 	lAnimation_raccoonrun.addFrame(91);
 	lPlayerSprite.addAnimation(lAnimation_raccoonrun);
 
+	SpriteAnimation lAnimation_raccoonflight("flight_raccoon");
+	lAnimation_raccoonflight.addFrame(110);
+	lAnimation_raccoonflight.addFrame(110);
+	lAnimation_raccoonflight.addFrame(110);
+	lAnimation_raccoonflight.addFrame(110);
+	lAnimation_raccoonflight.addFrame(111);
+	lAnimation_raccoonflight.addFrame(111);
+	lAnimation_raccoonflight.addFrame(111);
+	lAnimation_raccoonflight.addFrame(111);
+	lPlayerSprite.addAnimation(lAnimation_raccoonflight);
+
+
 	setSprite(lPlayerSprite);
 
 	mIsUntouchable = false;
 	mUntouchableRemainingTime = 0;
-	mLastTailUseTime = 0;
+	mUsingParachute = false;
 
 	setForm(PlayerAvatarState_Tiny);
 
@@ -107,19 +119,19 @@ void PlayerAvatar::hit(unsigned int pTicks)
 	switch (mPlayerAvatarForm)
 	{
 	case PlayerAvatarState_Tiny:
-	{
 		kill(pTicks);
-	}
-	break;
+		break;
 	case PlayerAvatarState_Big:
-	{
 		setForm(PlayerAvatarState_Tiny);
 		mIsUntouchable = true;
 		mUntouchableStartTime = pTicks;
 		mUntouchableRemainingTime = 2000;
-	}
-	break;
+		break;
 	case PlayerAvatarState_Raccoon:
+		setForm(PlayerAvatarState_Big);
+		mIsUntouchable = true;
+		mUntouchableStartTime = pTicks;
+		mUntouchableRemainingTime = 2000;
 		break;
 	case CollisionTest_Superball:
 		break;
@@ -153,14 +165,14 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 	if (Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT))
 	{
 		lSpeedX -= lIsOnSolid ? 0.8f : 0.35f;
-		mSprite.playAnimation(mRunAnimation);
 		mSprite.setHorizontalFlip(false);
+		mSprite.playAnimation(mRunAnimation);
 	}
 	else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT))
 	{
 		lSpeedX += lIsOnSolid ? 0.8f : 0.35f;
-		mSprite.playAnimation(mRunAnimation);
 		mSprite.setHorizontalFlip(true);
+		mSprite.playAnimation(mRunAnimation);
 	}
 	else if (lIsOnSolid)
 	{
@@ -188,17 +200,18 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 		{
 			lSpeedY = 8;
 		}
+		mUsingParachute = false;
 	}
 	else
 	{
 		if (mPlayerAvatarForm == PlayerAvatarState_Raccoon &&
-			Input::getInstance()->isPress(SDL_SCANCODE_SPACE) &&
-			pTicks - mLastTailUseTime > 200)
+			Input::getInstance()->isKeyDown(SDL_SCANCODE_SPACE) &&
+			lSpeedY > 0.0f)
 		{
-			lSpeedY = -0.0f;
-  			mLastTailUseTime = pTicks;
-
-			mSprite.setFrame(11);
+ 			lSpeedY = 1.0f;
+			
+			mSprite.playAnimation("flight_raccoon");
+			mUsingParachute = true;
 		}
 		else
 		{
@@ -206,6 +219,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 			lSpeedY = std::min(lSpeedY, 9.0f);
 
 			mSprite.setFrame(mJumpFrame);
+			mUsingParachute = false;
 		}
 	}
 
@@ -237,21 +251,17 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 	switch (mPlayerAvatarForm)
 	{
 	case PlayerAvatarState_Tiny:
-	{
-								   mJumpFrame = 3;
-								   mWaitFrame = 0;
-								   mRunAnimation = "run_tiny";
-								   setHitBox(Rectangle(13, 15, -6, -15));
-	}
+		mJumpFrame = 3;
+		mWaitFrame = 0;
+		mRunAnimation = "run_tiny";
+		setHitBox(Rectangle(13, 15, -6, -15));
 	break;
 	case PlayerAvatarState_Big:
-	{
-								  mJumpFrame = 33;
-								  mWaitFrame = 30;
-								  mRunAnimation = "run";
+		mJumpFrame = 33;
+		mWaitFrame = 30;
+		mRunAnimation = "run";
 
-								  setHitBox(Rectangle(13, 26, -6, -26));
-	}
+		setHitBox(Rectangle(13, 26, -6, -26));
 	break;
 	case PlayerAvatarState_Raccoon:
 		mJumpFrame = 93;
