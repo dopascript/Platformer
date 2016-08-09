@@ -30,6 +30,7 @@ namespace Platformer
 		int mJumpFrame;
 		int mWaitFrame;
 		int mCrouchedFrame;
+		int mSliddingFrame;
 		std::string mRunAnimation;
 
 		bool mIsDead;
@@ -40,6 +41,7 @@ namespace Platformer
 
 		bool mUsingParachute;
 		bool mCrouched;
+		bool mSlidding;
 	};
 }
 

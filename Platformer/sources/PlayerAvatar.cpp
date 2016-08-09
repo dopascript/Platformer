@@ -157,14 +157,15 @@ void PlayerAvatar::updateSpecialAppearance(unsigned int pTicks)
 void PlayerAvatar::updateMoves(unsigned int pTicks)
 {
 	Point lBottomPosition(mPosition.x, mPosition.y + 1);
-	Point lBottomLeftPosition(mPosition.x - (mHitBox.width / 2), mPosition.y + 1);
-	Point lBottomRightPosition(mPosition.x + (mHitBox.width / 2), mPosition.y + 1);
+	Point lBottomLeftPosition(mPosition.x - ((mHitBox.width / 2) + 1), mPosition.y + 1);
+	Point lBottomRightPosition(mPosition.x + ((mHitBox.width / 2) + 1), mPosition.y + 1);
 	bool lIsOnSolid = testHit(lBottomPosition, mSpeed, CollisionTest_MapAndItems);
 	TileCollision lBottomLeftCollision = mLevel->getCollisionMap()->getTileCollisionAtPosition(lBottomLeftPosition);
 	TileCollision lBottomRightCollision = mLevel->getCollisionMap()->getTileCollisionAtPosition(lBottomRightPosition);
 	//Horizontal move
 	float lSpeedX = mSpeed.x;
 	mCrouched = false;
+	mSlidding = false;
 	bool lRunning = Input::getInstance()->isKeyDown(SDL_SCANCODE_LCTRL);
 	if (lIsOnSolid)
 	{	
@@ -180,12 +181,20 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 			switch (lCurrentTileCollision)
 			{
 			case TileCollision_Angle45:
+			case TileCollision_Angle22_1:
+			case TileCollision_Angle22_2:
+				lSpeedX -= 0.5;
+				lWantToMove = true;
+				mSlidding = true;
+				mSprite.setFrame(mSliddingFrame);
+				break;
 			case TileCollision_Angle135:
 			case TileCollision_Angle112_1:
 			case TileCollision_Angle112_2:
-			case TileCollision_Angle22_1:
-			case TileCollision_Angle22_2:
-
+				lSpeedX += 0.5;
+				lWantToMove = true;
+				mSlidding = true;
+				mSprite.setFrame(mSliddingFrame);
 				break;
 			default:
 				mCrouched = true;
@@ -213,11 +222,11 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 		{
 			if (lRunning)
 			{
-				lSpeedX -= 0.8f;
+				lSpeedX += 0.8f;
 			}
 			else
 			{
-				lSpeedX -= 0.4f;
+				lSpeedX += 0.4f;
 			}
 			mSprite.setHorizontalFlip(true);
 			mSprite.playAnimation(mRunAnimation);
@@ -327,6 +336,7 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 		mJumpFrame = 3;
 		mWaitFrame = 0;
 		mCrouchedFrame = 0;
+		mSliddingFrame = 7;
 		mRunAnimation = "run_tiny";
 		setHitBox(Rectangle(13, 15, -6, -15));
 	break;
@@ -334,6 +344,7 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 		mJumpFrame = 33;
 		mWaitFrame = 30;
 		mCrouchedFrame = 34;
+		mSliddingFrame = 37;
 		mRunAnimation = "run";
 
 		setHitBox(Rectangle(13, 26, -6, -26));
@@ -341,6 +352,7 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 	case PlayerAvatarState_Raccoon:
 		mJumpFrame = 93;
 		mWaitFrame = 90;
+		mSliddingFrame = 97;
 		mCrouchedFrame = 94;
 		mRunAnimation = "run_raccoon";
 

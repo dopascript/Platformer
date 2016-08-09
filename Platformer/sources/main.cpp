@@ -20,8 +20,8 @@ int main(int argc, char** argv)
 	SDL_Window* pWindow = NULL;
 	pWindow = SDL_CreateWindow("Mario Bros", SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		800,
-		600,
+		1024,
+		768,
 		SDL_WINDOW_SHOWN);
 
 	SDL_Renderer *Main_Renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 	Platformer::Item::itemsTypesListing();
 
 	Platformer::Level *level = Platformer::Level::LoadFromFile("levels/level1.json");
-	level->setScreenSize(Size(800, 600));
+	level->setScreenSize(Size(1024, 768));
 
 	while (true)
 	{
