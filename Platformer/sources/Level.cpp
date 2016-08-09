@@ -135,7 +135,7 @@ void Level::updateCameraShift()
 	int lPixelMapHeight = mCollisionMap->getSize().height * mCollisionMap->getTileSize();
 	if (lPixelMapHeight < mScreenSize.height)
 	{
-		lCameraShiftY = (mScreenSize.height - lPixelMapHeight) / 2;
+		lCameraShiftY = -(mScreenSize.height - lPixelMapHeight) / 2;
 	}
 	else
 	{
