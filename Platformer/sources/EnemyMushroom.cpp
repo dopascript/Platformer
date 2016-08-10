@@ -77,28 +77,30 @@ void EnemyMushroom::update(unsigned int pTicks)
 
 void EnemyMushroom::updatePlayerHit(unsigned int pTime)
 {
-	PlayerAvatar* lPlayerAvatar = mLevel->getPlayerAvatar();
-	FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
-	if (lPlayerAvatar->getSpeed().y > 1.0f)
+	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
 	{
-		Point lBottomPosition(mPosition.x, mPosition.y + 1);
-		Rectangle lAbsBottomHitBox = getAbsolutHitBox(lBottomPosition);
-		if (getAbsolutHitBox().testHit(lPlayerAvatar->getAbsolutHitBox()))
+		FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
+		if (lPlayerAvatar->getSpeed().y > 1.0f)
 		{
-			hit(pTime);
-			lPlayerSpeed.y = -5.0f;
-			lPlayerAvatar->setSpeed(lPlayerSpeed);
-			SoundPlayer::getInstance()->playSound("stomp");
+			Point lBottomPosition(mPosition.x, mPosition.y + 1);
+			Rectangle lAbsBottomHitBox = getAbsolutHitBox(lBottomPosition);
+			if (getAbsolutHitBox().testHit(lPlayerAvatar->getAbsolutHitBox()))
+			{
+				hit(pTime);
+				lPlayerSpeed.y = -5.0f;
+				lPlayerAvatar->setSpeed(lPlayerSpeed);
+				SoundPlayer::getInstance()->playSound("stomp");
+				return;
+			}
+		}
+
+
+		Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
+		if (getAbsolutHitBox().testHit(lHitbox))
+		{
+			lPlayerAvatar->hit(pTime);
 			return;
 		}
-	}
-
-
-	Rectangle lHitbox = mLevel->getPlayerAvatar()->getAbsolutHitBox();
-	if (getAbsolutHitBox().testHit(lHitbox))
-	{
-		mLevel->getPlayerAvatar()->hit(pTime);
-		return;
 	}
 }
 

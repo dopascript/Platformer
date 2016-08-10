@@ -251,6 +251,11 @@
       "Y": 576
     },
     {
+      "Name": "PlayerAvatar",
+      "X": 196,
+      "Y": 576
+    },
+    {
       "Name": "CoinBonus",
       "X": 256,
       "Y": 576
@@ -259,6 +264,14 @@
       "Name": "EnemyMushroom",
       "X": 1520,
       "Y": 592
+    },
+    {
+      "Name": "CircularEnemy",
+	  "Radius":8,
+	  "RotationRadius":100,
+	  "RotationX":196,
+	  "RotationY":576,
+	  "Speed":0.5
     }
   ]
 }

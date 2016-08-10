@@ -50,13 +50,16 @@ void BonusMushroom::init(Json::Value pJson)
 
 void BonusMushroom::update(unsigned int pTicks)
 {
-	Rectangle lHitbox = mLevel->getPlayerAvatar()->getAbsolutHitBox();
-	if (getAbsolutHitBox().testHit(lHitbox))
+	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
 	{
-		SoundPlayer::getInstance()->playSound("power-up");
-		mLevel->getPlayerAvatar()->setForm(PlayerAvatarState_Raccoon);
-		mLevel->removeItem(this);
-		return;
+		Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
+		if (getAbsolutHitBox().testHit(lHitbox))
+		{
+			SoundPlayer::getInstance()->playSound("power-up");
+			lPlayerAvatar->setForm(PlayerAvatarState_Raccoon);
+			mLevel->removeItem(this);
+			return;
+		}
 	}
 
 	if (mBlocOrigine != nullptr &&

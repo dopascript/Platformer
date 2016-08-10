@@ -22,7 +22,7 @@ namespace Platformer
 		void draw(SDL_Renderer *pSDL_Renderer, unsigned int pTicks);
 		void uninit();
 
-		PlayerAvatar* getPlayerAvatar();
+		std::list<PlayerAvatar*>* getPlayerAvatars();
 
 		std::list<Item*>* getItems();
 
@@ -41,7 +41,7 @@ namespace Platformer
 		void updateScreenHitBox();
 		void updateOnScreenValues();
 
-		PlayerAvatar *mPlayerAvatar;
+		std::list<PlayerAvatar*> mPlayerAvatars;
 		std::list<Item*> mItems;
 
 		std::vector<Item*> mItemsToRemove;

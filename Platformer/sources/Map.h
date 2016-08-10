@@ -26,7 +26,7 @@ namespace Platformer
 		int getTileSize() const;
 		int* getTiles() const;
 		SDL_Texture* getTexture() const;
-		TileCollision getTileCollisionAtPosition(Point pPosition);
+		TileCollision getTileCollision(Point pTilePosition);
 
 		bool testHit(Point pPosition, FPoint pDirection);
 		bool testHit(Rectangle pHitBox, FPoint pDirection);

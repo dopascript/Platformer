@@ -118,8 +118,8 @@ void Level::draw(SDL_Renderer *pSDL_Renderer, unsigned int pTicks)
 
 void Level::updateCameraShift()
 {
-	int lCameraShiftX = mPlayerAvatar->getPosition().x - (mScreenSize.width / 2);
-	int lCameraShiftY = mPlayerAvatar->getPosition().y - (mScreenSize.width / 2);
+	int lCameraShiftX = mPlayerAvatars.front()->getPosition().x - (mScreenSize.width / 2);
+	int lCameraShiftY = mPlayerAvatars.front()->getPosition().y - (mScreenSize.width / 2);
 	
 	int lPixelMapWidth = mCollisionMap->getSize().width * mCollisionMap->getTileSize();
 	if (lPixelMapWidth < mScreenSize.width)
@@ -163,9 +163,9 @@ std::list<Item*>* Level::getItems()
 	return &mItems;
 }
 
-PlayerAvatar *Level::getPlayerAvatar()
+std::list<PlayerAvatar*> *Level::getPlayerAvatars()
 {
-	return mPlayerAvatar;
+	return &mPlayerAvatars;
 }
 
 void Level::removeItem(Item *pItem)
@@ -230,7 +230,7 @@ Level *Level::LoadFromFile(std::string pFilePath)
 		Item* lNewItem = Item::createItem(lItemName);
 		if (lNewItem->typeName() == "PlayerAvatar")
 		{
-			lLevelResult->mPlayerAvatar = (PlayerAvatar*)lNewItem;
+			lLevelResult->mPlayerAvatars.push_back((PlayerAvatar*)lNewItem);
 		}
 
 		lNewItem->setLevel(lLevelResult);

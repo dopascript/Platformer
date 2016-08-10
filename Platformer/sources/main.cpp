@@ -34,10 +34,25 @@ int main(int argc, char** argv)
 	Platformer::Level *level = Platformer::Level::LoadFromFile("levels/level1.json");
 	level->setScreenSize(Size(1024, 768));
 
+	SDL_Event event;
 	while (true)
 	{
-		unsigned int lTicks = SDL_GetTicks();
 		Input::getInstance()->update();
+		while (SDL_PollEvent(&event))
+		{
+			if (event.type == SDL_QUIT)
+			{
+				quit = true;
+				break;
+			}
+		}
+		if (quit)
+		{
+			break;
+		}
+
+		unsigned int lTicks = SDL_GetTicks();
+		
 		level->update(lTicks);
 		level->draw(Main_Renderer, lTicks);
 

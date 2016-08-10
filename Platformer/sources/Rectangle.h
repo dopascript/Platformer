@@ -5,7 +5,7 @@
 
 #include "Size.h"
 #include "Point.h"
-
+#include "Circle.h"
 
 class Rectangle
 {
@@ -45,6 +45,22 @@ public:
 			x + width > pOther.x &&
 			y < pOther.y + pOther.height &&
 			y + height > pOther.y;
+	}
+
+	bool testHit(const Circle& pCircle)
+	{
+		int circleDistanceX = abs((pCircle.x - (pCircle.radius / 2)) - x);
+		int circleDistanceY = abs((pCircle.y - (pCircle.radius / 2)) - y);
+
+		if (circleDistanceX > (width / 2 + pCircle.radius)) { return false; }
+		if (circleDistanceY > (height / 2 + pCircle.radius)) { return false; }
+
+		if (circleDistanceX <= (width / 2)) { return true; }
+		if (circleDistanceY <= (height / 2)) { return true; }
+
+		int cornerDistanceSq = (circleDistanceX - width / 2) ^ 2 + (circleDistanceY - height / 2) ^ 2;
+
+		return (cornerDistanceSq <= (pCircle.radius ^ 2));
 	}
 
 	SDL_Rect toSDL_Rect()

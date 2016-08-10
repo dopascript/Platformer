@@ -157,11 +157,19 @@ void PlayerAvatar::updateSpecialAppearance(unsigned int pTicks)
 void PlayerAvatar::updateMoves(unsigned int pTicks)
 {
 	Point lBottomPosition(mPosition.x, mPosition.y + 1);
-	Point lBottomLeftPosition(mPosition.x - ((mHitBox.width / 2) + 1), mPosition.y + 1);
-	Point lBottomRightPosition(mPosition.x + ((mHitBox.width / 2) + 1), mPosition.y + 1);
+
 	bool lIsOnSolid = testHit(lBottomPosition, mSpeed, CollisionTest_MapAndItems);
-	TileCollision lBottomLeftCollision = mLevel->getCollisionMap()->getTileCollisionAtPosition(lBottomLeftPosition);
-	TileCollision lBottomRightCollision = mLevel->getCollisionMap()->getTileCollisionAtPosition(lBottomRightPosition);
+
+	int lTileSize = mLevel->getCollisionMap()->getTileSize();
+	Point lTilePosition(mPosition.x / lTileSize, mPosition.y / lTileSize);
+
+	TileCollision lTileCollision = mLevel->getCollisionMap()->getTileCollision(lTilePosition);
+	if (lTileCollision == TileCollision::TileCollision_None)
+	{
+		Point lBottomTileCollision = Point(lTilePosition.x, lTilePosition.y + 1);
+		lTileCollision = mLevel->getCollisionMap()->getTileCollision(lBottomTileCollision);
+	}
+	
 	//Horizontal move
 	float lSpeedX = mSpeed.x;
 	mCrouched = false;
@@ -172,26 +180,30 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 		bool lWantToMove = false;
 		if (Input::getInstance()->isKeyDown(SDL_SCANCODE_DOWN))
 		{
-			TileCollision lCurrentTileCollision = lBottomLeftCollision;
-			if (lBottomRightCollision != TileCollision::TileCollision_None)
-			{
-				lCurrentTileCollision = lBottomRightCollision;
-			}
-
-			switch (lCurrentTileCollision)
+			switch (lTileCollision)
 			{
 			case TileCollision_Angle45:
+				lSpeedX -= 1.0;
+				lWantToMove = true;
+				mSlidding = true;
+				mSprite.setFrame(mSliddingFrame);
+				break;
 			case TileCollision_Angle22_1:
 			case TileCollision_Angle22_2:
-				lSpeedX -= 0.5;
+				lSpeedX -= 0.2;
 				lWantToMove = true;
 				mSlidding = true;
 				mSprite.setFrame(mSliddingFrame);
 				break;
 			case TileCollision_Angle135:
+				lSpeedX += 1.0;
+				lWantToMove = true;
+				mSlidding = true;
+				mSprite.setFrame(mSliddingFrame);
+				break;
 			case TileCollision_Angle112_1:
 			case TileCollision_Angle112_2:
-				lSpeedX += 0.5;
+				lSpeedX += 0.2;
 				lWantToMove = true;
 				mSlidding = true;
 				mSprite.setFrame(mSliddingFrame);
@@ -320,6 +332,14 @@ void PlayerAvatar::kill(unsigned int pTicks)
 	mSprite.setFrame(20);
 	mSpeed = FPoint(0, -5);
 	SoundPlayer::getInstance()->playSound("player-down");
+
+	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
+	{
+		if (lPlayerAvatar != this && !lPlayerAvatar->isDead())
+		{
+			lPlayerAvatar->kill(pTicks);
+		}
+	}
 }
 
 bool PlayerAvatar::isDead()

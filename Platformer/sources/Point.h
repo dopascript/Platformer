@@ -35,7 +35,10 @@ public:
 		return lResult;
 	}
 
-
+	float distance(const Point &pOther)
+	{
+		return (float)std::sqrt((x - pOther.x)*(x - pOther.x) + (y - pOther.y)*(y - pOther.y));
+	}
 };
 
 #endif

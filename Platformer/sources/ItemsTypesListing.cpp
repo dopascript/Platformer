@@ -5,6 +5,7 @@
 #include "BlocBonus.h"
 #include "PlayerAvatar.h"
 #include "CoinBonus.h"
+#include "CircularEnemy.h"
 
 using namespace Platformer;
 
@@ -16,6 +17,7 @@ void Item::itemsTypesListing()
 	addItemsType(new BlocBonus());
 	addItemsType(new PlayerAvatar());
 	addItemsType(new CoinBonus());
+	addItemsType(new CircularEnemy());
 }
 
 void Item::addItemsType(Item *pItem)

@@ -57,22 +57,24 @@ void BlocBonus::init(Json::Value pJson)
 
 void BlocBonus::update(unsigned int pTicks)
 {
-	PlayerAvatar* lPlayerAvatar = mLevel->getPlayerAvatar();
-	Point lPlayerPosition = lPlayerAvatar->getPosition();
-
-	Point lPlayerTopPosition(lPlayerPosition.x, lPlayerPosition.y - 1);
-	Rectangle lAbsPlayerTopHitBox = lPlayerAvatar->getAbsolutHitBox(lPlayerTopPosition);
-	if (getAbsolutHitBox().testHit(lAbsPlayerTopHitBox))
+	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
 	{
-		createBonus(pTicks);
-		mSpeed.y = -3.0f;
-		mAcceleration = FPoint(0.0f, 0.7f);
+		Point lPlayerPosition = lPlayerAvatar->getPosition();
 
-		FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
-		lPlayerSpeed.y = 0;
-		lPlayerAvatar->setSpeed(lPlayerSpeed);
+		Point lPlayerTopPosition(lPlayerPosition.x, lPlayerPosition.y - 1);
+		Rectangle lAbsPlayerTopHitBox = lPlayerAvatar->getAbsolutHitBox(lPlayerTopPosition);
+		if (getAbsolutHitBox().testHit(lAbsPlayerTopHitBox))
+		{
+			createBonus(pTicks);
+			mSpeed.y = -3.0f;
+			mAcceleration = FPoint(0.0f, 0.7f);
 
-		SoundPlayer::getInstance()->playSound("vine");
+			FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
+			lPlayerSpeed.y = 0;
+			lPlayerAvatar->setSpeed(lPlayerSpeed);
+
+			SoundPlayer::getInstance()->playSound("vine");
+		}
 	}
 
 	mPosition.y = mPosition.y + (int)mSpeed.y;

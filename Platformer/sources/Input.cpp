@@ -23,13 +23,13 @@ void Input::update()
 	if (mKeyboard == nullptr)
 	{
 		mKeyboard = SDL_GetKeyboardState(NULL);
+		mLastStateKeyboard = new Uint8[200];
 	}
 	else
 	{
-		mLastStateKeyboard = new Uint8[200];
 		memcpy(mLastStateKeyboard, mKeyboard, 200);
 	}
-	SDL_PumpEvents();
+	//SDL_PumpEvents();
 }
 
 bool Input::isKeyDown(SDL_Keycode pKeyCode)
