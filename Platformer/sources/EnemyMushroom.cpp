@@ -52,6 +52,13 @@ void EnemyMushroom::init(Json::Value pJson)
 
 void EnemyMushroom::update(unsigned int pTicks)
 {
+	Map* lCollisionMap = mLevel->getCollisionMap();
+	if (mPosition.y > lCollisionMap->getTileSize() * lCollisionMap->getSize().height)
+	{
+		mLevel->removeItem(this);
+		return;
+	}
+
 	if (mIsDead)
 	{
 		if (pTicks - mKillTime > 1000)
