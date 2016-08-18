@@ -10,6 +10,12 @@
 
 using namespace Platformer;
 
+
+void Level::setRenderer(SDL_Renderer* pRenderer)
+{
+	mRenderer = pRenderer;
+}
+
 void Level::setScreenSize(Size pSize)
 {
 	mScreenSize = pSize;
@@ -17,13 +23,24 @@ void Level::setScreenSize(Size pSize)
 	mScreenHitBox.height = mScreenSize.height;
 }
 
+void Level::setGame(Game* pGame)
+{
+	mGame = pGame;
+}
+
 void Level::init()
 {
+	mScreenSize = Size(800, 600);
+	mRenderTexture = SDL_CreateTexture(mRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, mScreenSize.width, mScreenSize.height);
+	mScreenHitBox.width = mScreenSize.width;
+	mScreenHitBox.height = mScreenSize.height;
 
+	mCamera.setScreenSize(mScreenSize);
 }
 
 void Level::update(unsigned int pTicks)
 {
+
 	updateOnScreenValues();
 	activeItems();
 	for (auto &lItem : mItems)
@@ -37,7 +54,7 @@ void Level::update(unsigned int pTicks)
 	removeItems();
 	addItems();
 
-	updateCameraShift();
+	mCamera.update(pTicks);
 	updateScreenHitBox();
 }
 
@@ -87,8 +104,8 @@ void Level::removeItems()
 
 void Level::updateScreenHitBox()
 {
-	mScreenHitBox.x = mCameraShift.x * -1;
-	mScreenHitBox.y = mCameraShift.y * -1;
+	mScreenHitBox.x = mCamera.getShift().x * -1;
+	mScreenHitBox.y = mCamera.getShift().y * -1;
 }
 
 void Level::updateOnScreenValues()
@@ -101,48 +118,21 @@ void Level::updateOnScreenValues()
 
 void Level::draw(SDL_Renderer *pSDL_Renderer, unsigned int pTicks)
 {
+	SDL_SetRenderTarget(mRenderer, mRenderTexture);
+
 	SDL_SetRenderDrawColor(pSDL_Renderer, mBackgroundColor.r, mBackgroundColor.g, mBackgroundColor.b, 255);
 	SDL_RenderClear(pSDL_Renderer);
 
-	mBackDecorsMap->draw(pSDL_Renderer, mCameraShift, mScreenHitBox);
+	mBackDecorsMap->draw(pSDL_Renderer, mCamera.getShift(), mScreenHitBox);
 	for (auto &lItem : mItems)
 	{
 		if (!lItem->getIsOnScreen())
 		{
 			continue;
 		}
-		lItem->draw(pSDL_Renderer, mCameraShift, pTicks);
+		lItem->draw(pSDL_Renderer, mCamera.getShift(), pTicks);
 	}
-	mFrontDecorsMap->draw(pSDL_Renderer, mCameraShift, mScreenHitBox);
-}
-
-void Level::updateCameraShift()
-{
-	int lCameraShiftX = mPlayerAvatars.front()->getPosition().x - (mScreenSize.width / 2);
-	int lCameraShiftY = mPlayerAvatars.front()->getPosition().y - (mScreenSize.width / 2);
-	
-	int lPixelMapWidth = mCollisionMap->getSize().width * mCollisionMap->getTileSize();
-	if (lPixelMapWidth < mScreenSize.width)
-	{
-		lCameraShiftX = ((mScreenSize.width - lPixelMapWidth) / 2);
-	}
-	else
-	{
-		lCameraShiftX = std::min(std::max(lCameraShiftX, 0), lPixelMapWidth - mScreenSize.width);
-	}
-	lCameraShiftX *= -1;
-
-	int lPixelMapHeight = mCollisionMap->getSize().height * mCollisionMap->getTileSize();
-	if (lPixelMapHeight < mScreenSize.height)
-	{
-		lCameraShiftY = -(mScreenSize.height - lPixelMapHeight) / 2;
-	}
-	else
-	{
-		lCameraShiftY = std::min(std::max(lCameraShiftY, 0), lPixelMapHeight - mScreenSize.height);
-	}
-	mCameraShift.x = lCameraShiftX;
-	mCameraShift.y = lCameraShiftY * -1;
+	mFrontDecorsMap->draw(pSDL_Renderer, mCamera.getShift(), mScreenHitBox);
 }
 
 Map* Level::getCollisionMap()
@@ -181,6 +171,11 @@ void Level::addItem(Item *pItem)
 void Level::addItemToBack(Item *pItem)
 {
 	mItemsToAddToBack.push_back(pItem);
+}
+
+SDL_Texture* Level::getRenderTexture()
+{
+	return mRenderTexture;
 }
 
 Level *Level::LoadFromFile(std::string pFilePath)
@@ -238,5 +233,8 @@ Level *Level::LoadFromFile(std::string pFilePath)
 		lLevelResult->addItem(lNewItem);
 	}
 
+	lLevelResult->mCamera.setCollistionMap(lLevelResult->mCollisionMap);
+	lLevelResult->mCamera.setItemToTrack((Item*)*lLevelResult->mPlayerAvatars.begin());
+	
 	return lLevelResult;
 }

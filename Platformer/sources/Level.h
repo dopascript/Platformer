@@ -8,14 +8,18 @@
 #include "Item.h"
 #include "Map.h"
 #include "Color.h"
+#include "Camera.h"
+
+class Game;
 
 namespace Platformer
 {
 	class Level
 	{
 	public:
-
+		void setGame(Game* pGame);
 		void setScreenSize(Size pSize);
+		void setRenderer(SDL_Renderer* pRenderer);
 
 		void init();
 		void update(unsigned int pTicks);
@@ -33,13 +37,17 @@ namespace Platformer
 		void addItemToBack(Item *pItem);
 
 		static Level *LoadFromFile(std::string pFilePath);
+
+		SDL_Texture* getRenderTexture();
 	protected:
 		void activeItems();
 		void removeItems();
 		void addItems();
-		void updateCameraShift();
 		void updateScreenHitBox();
 		void updateOnScreenValues();
+
+		SDL_Renderer* mRenderer;
+		SDL_Texture* mRenderTexture;
 
 		std::list<PlayerAvatar*> mPlayerAvatars;
 		std::list<Item*> mItems;
@@ -53,12 +61,12 @@ namespace Platformer
 		Map* mFrontDecorsMap;
 
 		Color mBackgroundColor;
-
+		
 		Size mScreenSize;
 		Rectangle mScreenHitBox;
-		Point mCameraShift;
+		Camera mCamera;
 
-		
+		Game* mGame;
 	};
 }
 #endif

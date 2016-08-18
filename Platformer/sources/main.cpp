@@ -4,6 +4,7 @@
 #include "ImageLibrary.h"
 #include "Input.h"
 #include "Item.h"
+#include "Game.h"
 
 int main(int argc, char** argv)
 {
@@ -27,13 +28,12 @@ int main(int argc, char** argv)
 	SDL_Renderer *Main_Renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
 	ImageLibrary::getInstance()->setRender(Main_Renderer);
 
-
-
 	Platformer::Item::itemsTypesListing();
 
-	Platformer::Level *level = Platformer::Level::LoadFromFile("levels/level1.json");
-	level->setScreenSize(Size(1024, 768));
-
+	Game *game = new Game();
+	game->setRenderer(Main_Renderer);
+	game->init();
+	game->startPlatformLevel("levels/level1.json");
 	SDL_Event event;
 	while (true)
 	{
@@ -53,8 +53,8 @@ int main(int argc, char** argv)
 
 		unsigned int lTicks = SDL_GetTicks();
 		
-		level->update(lTicks);
-		level->draw(Main_Renderer, lTicks);
+		game->update(lTicks);
+		game->draw(Main_Renderer, lTicks);
 
 		SDL_RenderPresent(Main_Renderer);
 
@@ -64,7 +64,7 @@ int main(int argc, char** argv)
 			SDL_Delay(lMillisecondsToWait);
 		}
 	}
-
+	game->uninit();
 
 	SDL_DestroyWindow(pWindow);
 
