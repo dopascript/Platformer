@@ -65,7 +65,7 @@ namespace PlatformerEditor
             _levelViewer.CurrentSelectedMap = map.Name;
 
             DirectoryInfo directory = (new FileInfo(_level.Path)).Directory;
-            string filePath = System.IO.Path.Combine(directory.FullName, map.ImagePath);
+            string filePath = System.IO.Path.Combine(directory.Parent.FullName, map.ImagePath);
             pictureBoxTileSelector.Image = Bitmap.FromFile(filePath);
         }
 
