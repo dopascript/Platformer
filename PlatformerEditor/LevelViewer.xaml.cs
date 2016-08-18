@@ -52,7 +52,7 @@ namespace PlatformerEditor
             if (!_textures.ContainsKey(path))
             {
                 DirectoryInfo directory = (new FileInfo(_level.Path)).Directory;
-                string filePath = System.IO.Path.Combine(directory.FullName, path);
+                string filePath = System.IO.Path.Combine(directory.Parent.FullName, path);
                 _textures.Add(path, new BitmapImage(new Uri(filePath)));
             }
             return _textures[path];
