@@ -18,11 +18,12 @@ void CircularEnemy::init()
 	Sprite lPlayerSprite;
 	lPlayerSprite.setTexture(lPlayerTexture);
 	lPlayerSprite.setSize(Size(24, 24));
+	lPlayerSprite.setSpriteCountY(10);
 	lPlayerSprite.setOrigin(Point(12, 12));
-
+	 
 	setSprite(lPlayerSprite);
 
-	mSprite.setFrame(6);
+	mSprite.setFrame(62);
 
 	setHitBox(Rectangle(16, 16, 0, -1));
 
@@ -35,8 +36,8 @@ void CircularEnemy::init(Json::Value pJson)
 
 	mRadius = pJson["Radius"].asInt();
 	mRotationRadius = pJson["RotationRadius"].asInt();
-	int lRotationX = pJson["RotationX"].asInt();
-	int lRotationY = pJson["RotationY"].asInt();
+	int lRotationX = pJson["X"].asInt();
+	int lRotationY = pJson["Y"].asInt();
 	mRotationCenter = Point(lRotationX, lRotationY);
 	mSpeed = pJson["Speed"].asFloat();
 	setPosition(Point(lRotationX - mRadius, lRotationY));

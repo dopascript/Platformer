@@ -7,6 +7,11 @@ MainMenu::MainMenu()
 
 }
 
+void MainMenu::setGame(Game* pGame)
+{
+	mGame = pGame;
+}
+
 void MainMenu::init()
 {
 

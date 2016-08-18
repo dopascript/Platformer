@@ -227,6 +227,7 @@ void Item::draw(SDL_Renderer *pSDL_Renderer, Point pCameraShift, int pTime)
 	SDL_Rect lOnScreenRectangle = mSprite.getOnScreenRectangle(mPosition).toSDL_Rect();
 	lOnScreenRectangle.x += pCameraShift.x;
 	lOnScreenRectangle.y += pCameraShift.y;
+
 	SDL_Point lCenter = mSprite.getOrigin().toSDL_Point();
 	SDL_RendererFlip lHorizontalFlip = mSprite.getHorizontalFlip() ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
 
