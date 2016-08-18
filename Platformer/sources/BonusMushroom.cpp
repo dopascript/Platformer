@@ -50,6 +50,12 @@ void BonusMushroom::init(Json::Value pJson)
 
 void BonusMushroom::update(unsigned int pTicks)
 {
+	if (!mIsOnScreen)
+	{
+		mLevel->removeItem(this);
+		return;
+	}
+
 	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
 	{
 		Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
