@@ -87,7 +87,9 @@
     <ClCompile Include="sources/SpriteAnimation.cpp" />
     <ClCompile Include="sources/Level.cpp" />
     <ClCompile Include="sources/LoadHelper.cpp" />
+    <ClCompile Include="sources\Camera.cpp" />
     <ClCompile Include="sources\CircularEnemy.cpp" />
+    <ClCompile Include="sources\Game.cpp" />
     <ClCompile Include="sources\ItemsTypesListing.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -113,8 +115,10 @@
     <ClInclude Include="sources/SpriteAnimation.h" />
     <ClInclude Include="sources/Level.h" />
     <ClInclude Include="sources/LoadHelper.h" />
+    <ClInclude Include="sources\Camera.h" />
     <ClInclude Include="sources\Circle.h" />
     <ClInclude Include="sources\CircularEnemy.h" />
+    <ClInclude Include="sources\Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
