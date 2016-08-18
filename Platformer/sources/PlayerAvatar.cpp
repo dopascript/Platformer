@@ -158,7 +158,10 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 {
 	Point lBottomPosition(mPosition.x, mPosition.y + 1);
 
-	bool lIsOnSolid = testHit(lBottomPosition, mSpeed, CollisionTest_MapAndItems);
+	bool lHitOnBottom = testHit(lBottomPosition, mSpeed, CollisionTest_MapAndItems);
+
+	bool lHitOnLeft = testHit(Point(mPosition.x - 1, mPosition.y), mSpeed, CollisionTest_MapAndItems);
+	bool lHitOnRight = testHit(Point(mPosition.x + 1, mPosition.y), mSpeed, CollisionTest_MapAndItems);
 
 	int lTileSize = mLevel->getCollisionMap()->getTileSize();
 	Point lTilePosition(mPosition.x / lTileSize, mPosition.y / lTileSize);
@@ -175,7 +178,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 	mCrouched = false;
 	mSlidding = false;
 	bool lRunning = Input::getInstance()->isKeyDown(SDL_SCANCODE_LCTRL);
-	if (lIsOnSolid)
+	if (lHitOnBottom)
 	{	
 		bool lWantToMove = false;
 		if (Input::getInstance()->isKeyDown(SDL_SCANCODE_DOWN))
@@ -183,27 +186,27 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 			switch (lTileCollision)
 			{
 			case TileCollision_Angle45:
-				lSpeedX -= 1.0;
+				lSpeedX -= 1.0f;
 				lWantToMove = true;
 				mSlidding = true;
 				mSprite.setFrame(mSliddingFrame);
 				break;
 			case TileCollision_Angle22_1:
 			case TileCollision_Angle22_2:
-				lSpeedX -= 0.2;
+				lSpeedX -= 0.2f;
 				lWantToMove = true;
 				mSlidding = true;
 				mSprite.setFrame(mSliddingFrame);
 				break;
 			case TileCollision_Angle135:
-				lSpeedX += 1.0;
+				lSpeedX += 1.0f;
 				lWantToMove = true;
 				mSlidding = true;
 				mSprite.setFrame(mSliddingFrame);
 				break;
 			case TileCollision_Angle112_1:
 			case TileCollision_Angle112_2:
-				lSpeedX += 0.2;
+				lSpeedX += 0.2f;
 				lWantToMove = true;
 				mSlidding = true;
 				mSprite.setFrame(mSliddingFrame);
@@ -244,6 +247,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 			mSprite.playAnimation(mRunAnimation);
 			lWantToMove = true;
 		}
+
 		if(!lWantToMove)
 		{
 			if (lSpeedX < -1.0f) lSpeedX += 0.9f;
@@ -255,13 +259,13 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 	{
 		if (Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT))
 		{
-			lSpeedX -= lIsOnSolid ? 0.8f : 0.35f;
+			lSpeedX -= lHitOnBottom ? 0.8f : 0.35f;
 			mSprite.setHorizontalFlip(false);
 			mSprite.playAnimation(mRunAnimation);
 		}
 		else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT))
 		{
-			lSpeedX += lIsOnSolid ? 0.8f : 0.35f;
+			lSpeedX += lHitOnBottom ? 0.8f : 0.35f;
 			mSprite.setHorizontalFlip(true);
 			mSprite.playAnimation(mRunAnimation);
 		} 
@@ -283,7 +287,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 
 	//Vertical move
 	float lSpeedY = mSpeed.y;
-	if (lIsOnSolid)
+	if (lHitOnBottom)
 	{
 		if (Input::getInstance()->isPress(SDL_SCANCODE_SPACE))
 		{
@@ -310,12 +314,35 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 		else
 		{
 			lSpeedY += 1.0f;
-			lSpeedY = std::min(lSpeedY, 9.0f);
+			if ((lHitOnLeft && Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT)) || 
+				(lHitOnRight && Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT)))
+			{
+				lSpeedY = std::min(lSpeedY, 3.0f);
+			}
+			else
+			{
+				lSpeedY = std::min(lSpeedY, 9.0f);
+			}
 
 			mSprite.setFrame(mJumpFrame);
 			mUsingParachute = false;
 		}
 	}
+
+	if (!lHitOnBottom && Input::getInstance()->isPress(SDL_SCANCODE_SPACE))
+	{
+		if (lHitOnLeft)
+		{
+			lSpeedX = 8;
+			lSpeedY = -10.0f;
+		}
+		else if (lHitOnRight)
+		{
+			lSpeedX = -8;
+			lSpeedY = -10.0f;
+		}
+	}
+
 
 	mSpeed.x = lSpeedX;
 	mSpeed.y = lSpeedY;
