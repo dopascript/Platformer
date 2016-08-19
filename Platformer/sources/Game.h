@@ -10,6 +10,7 @@
 class Game
 {
 public:
+	void setWindowSize(Size pSize);
 	void setRenderer(SDL_Renderer* pRenderer);
 
 	void init();
@@ -22,7 +23,7 @@ protected:
 	SDL_Renderer* mRenderer;
 	Platformer::Level* mPlatformLevel;
 	Menu::MainMenu* mMainMenu;
-
+	Size pScreenSize;
 };
 
 #endif

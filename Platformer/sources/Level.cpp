@@ -30,7 +30,7 @@ void Level::setGame(Game* pGame)
 
 void Level::init()
 {
-	mScreenSize = Size(800, 600);
+	mScreenSize = Size(400, 300);
 	mRenderTexture = SDL_CreateTexture(mRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, mScreenSize.width, mScreenSize.height);
 	mScreenHitBox.width = mScreenSize.width;
 	mScreenHitBox.height = mScreenSize.height;
