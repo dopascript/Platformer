@@ -385,7 +385,7 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 		mCrouchedFrame = 0;
 		mSliddingFrame = 7;
 		mRunAnimation = "run_tiny";
-		setHitBox(Rectangle(13, 15, -6, -15));
+		setHitBox(Rectangle(8, 15, -4, -15));
 	break;
 	case PlayerAvatarState_Big:
 		mJumpFrame = 33;
@@ -394,7 +394,7 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 		mSliddingFrame = 37;
 		mRunAnimation = "run";
 
-		setHitBox(Rectangle(13, 26, -6, -26));
+		setHitBox(Rectangle(8, 26, -4, -26));
 	break;
 	case PlayerAvatarState_Raccoon:
 		mJumpFrame = 93;
@@ -403,7 +403,7 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 		mCrouchedFrame = 94;
 		mRunAnimation = "run_raccoon";
 
-		setHitBox(Rectangle(13, 26, -6, -26));
+		setHitBox(Rectangle(8, 26, -4, -26));
 	break;
 	case CollisionTest_Superball:
 	break;
