@@ -2,6 +2,7 @@
 #define GAMEOBJECT_H
 
 #include <vector>
+#include <list>
 #include <SDL.h>
 #include <json/json.h>
 
@@ -13,6 +14,7 @@
 namespace Platformer
 {
 	class Level;
+	class Area;
 
 	enum CollisionTest { CollisionTest_None, CollisionTest_MapAndItems, CollisionTest_Map, CollisionTest_Items };
 
@@ -66,6 +68,10 @@ namespace Platformer
 		static Item* createItem(std::string pName);
 		static bool itemTypeExist(std::string pName);
 		static void itemsTypesListing();
+
+		void addArea(Area* pArea);
+		void clearArea();
+		void updateItemsInArea();
 	protected:
 		Level *mLevel;
 		Sprite mSprite;
@@ -78,6 +84,8 @@ namespace Platformer
 		Color mDrawColor;
 		bool mActive;
 
+		std::list<Area*> mAreas;
+		std::list<Item*> mItemsInArea;
 		static std::map<std::string, Item*> mItemsTypes;
 	};
 }

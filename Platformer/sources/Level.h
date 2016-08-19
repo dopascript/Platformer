@@ -9,6 +9,7 @@
 #include "Map.h"
 #include "Color.h"
 #include "Camera.h"
+#include "AreaManager.h"
 
 class Game;
 
@@ -65,6 +66,7 @@ namespace Platformer
 		Size mScreenSize;
 		Rectangle mScreenHitBox;
 		Camera mCamera;
+		AreaManager mAreaManager;
 
 		Game* mGame;
 	};

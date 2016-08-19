@@ -19,12 +19,13 @@ int main(int argc, char** argv)
 	}
 	SDL_DisplayMode current;
 	SDL_GetCurrentDisplayMode(0, &current);
+	Size lScreenSize(800, 600);// current.w, current.h);
 
 	SDL_Window* pWindow = NULL;
 	pWindow = SDL_CreateWindow("Mario Bros", SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		current.w,
-		current.h,
+		lScreenSize.width,
+		lScreenSize.height,
 		SDL_WINDOW_SHOWN);
 
 	//SDL_SetWindowFullscreen(pWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
@@ -34,7 +35,7 @@ int main(int argc, char** argv)
 	Platformer::Item::itemsTypesListing();
 
 	Game *game = new Game();
-	game->setWindowSize(Size(current.w,	current.h));
+	game->setWindowSize(Size(lScreenSize.width, lScreenSize.height));
 	game->setRenderer(Main_Renderer);
 	game->init();
 	game->startPlatformLevel("levels/level1.json");

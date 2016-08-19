@@ -95,6 +95,12 @@
     <ClCompile Include="sources\Camera.cpp">
       <Filter>Fichiers sources\Platformer</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Area.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\AreaManager.cpp">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources/Color.h">
@@ -173,6 +179,12 @@
       <Filter>Fichiers sources\Images</Filter>
     </ClInclude>
     <ClInclude Include="sources\Camera.h">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\Area.h">
+      <Filter>Fichiers sources\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\AreaManager.h">
       <Filter>Fichiers sources\Platformer</Filter>
     </ClInclude>
   </ItemGroup>

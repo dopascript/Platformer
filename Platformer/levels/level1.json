@@ -36,6 +36,2471 @@
   ],
   "Items": [
     {
+      "Name": "CoinBonus",
+      "X": 32,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 48,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 64,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 80,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 96,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 112,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 128,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 144,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 160,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 176,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 192,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 208,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 224,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 240,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 256,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 272,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 288,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 304,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 320,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 336,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 352,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 368,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 384,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 400,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 416,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 432,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 448,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 464,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 480,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 496,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 512,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 528,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 544,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 560,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 576,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 592,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 608,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 624,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 640,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 656,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 672,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 688,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 704,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 720,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 736,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 752,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 768,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 784,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 800,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 816,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 832,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 848,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 864,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 880,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 896,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 912,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 928,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 944,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 960,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 976,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 992,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1008,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1024,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1040,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1056,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1072,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1088,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1104,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1120,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1136,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1152,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1168,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1184,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1200,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1216,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1232,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1248,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1264,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1280,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1296,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1312,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1328,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1344,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1360,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1376,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1392,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1408,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1424,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1440,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1456,
+      "Y": 32
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 32,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 48,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 64,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 80,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 96,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 112,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 128,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 144,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 160,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 176,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 192,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 208,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 224,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 240,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 256,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 272,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 288,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 304,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 320,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 336,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 352,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 368,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 384,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 400,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 416,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 432,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 448,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 464,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 480,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 496,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 512,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 528,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 544,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 560,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 576,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 592,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 608,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 624,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 640,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 656,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 672,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 688,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 704,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 720,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 736,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 752,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 768,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 784,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 800,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 816,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 832,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 848,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 864,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 880,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 896,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 912,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 928,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 944,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 960,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 976,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 992,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1008,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1024,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1040,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1056,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1072,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1088,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1104,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1120,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1136,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1152,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1168,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1184,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1200,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1216,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1232,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1248,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1264,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1280,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1296,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1312,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1328,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1344,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1360,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1376,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1392,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1408,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1424,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1440,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1456,
+      "Y": 48
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 32,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 48,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 64,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 80,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 96,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 112,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 128,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 144,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 160,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 176,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 192,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 208,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 224,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 240,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 256,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 272,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 288,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 304,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 320,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 336,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 352,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 368,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 384,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 400,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 416,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 432,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 448,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 464,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 480,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 496,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 512,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 528,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 544,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 560,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 576,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 592,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 608,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 624,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 640,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 656,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 672,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 688,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 704,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 720,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 736,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 752,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 768,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 784,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 800,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 816,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 832,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 848,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 864,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 880,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 896,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 912,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 928,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 944,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 960,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 976,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 992,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1008,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1024,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1040,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1056,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1072,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1088,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1104,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1120,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1136,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1152,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1168,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1184,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1200,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1216,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1232,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1248,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1264,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1280,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1296,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1312,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1328,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1344,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1360,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1376,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1392,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1408,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1424,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1440,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1456,
+      "Y": 64
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 32,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 48,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 64,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 80,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 96,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 112,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 128,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 144,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 160,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 176,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 192,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 208,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 224,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 240,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 256,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 272,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 288,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 304,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 320,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 336,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 352,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 368,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 384,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 400,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 416,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 432,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 448,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 464,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 480,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 496,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 512,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 528,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 544,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 560,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 576,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 592,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 608,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 624,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 640,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 656,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 672,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 688,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 704,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 720,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 736,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 752,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 768,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 784,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 800,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 816,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 832,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 848,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 864,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 880,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 896,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 912,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 928,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 944,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 960,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 976,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 992,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1008,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1024,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1040,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1056,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1072,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1088,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1104,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1120,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1136,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1152,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1168,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1184,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1200,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1216,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1232,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1248,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1264,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1280,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1296,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1312,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1328,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1344,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1360,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1376,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1392,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1408,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1424,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1440,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1456,
+      "Y": 80
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 32,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 48,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 64,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 80,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 96,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 112,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 128,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 144,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 160,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 176,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 192,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 208,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 224,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 240,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 256,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 272,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 288,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 304,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 320,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 336,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 352,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 368,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 384,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 400,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 416,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 432,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 448,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 464,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 480,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 496,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 512,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 528,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 544,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 560,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 576,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 592,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 608,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 624,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 640,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 656,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 672,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 688,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 704,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 720,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 736,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 752,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 768,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 784,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 800,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 816,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 832,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 848,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 864,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 880,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 896,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 912,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 928,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 944,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 960,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 976,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 992,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1008,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1024,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1040,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1056,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1072,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1088,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1104,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1120,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1136,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1152,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1168,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1184,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1200,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1216,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1232,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1248,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1264,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1280,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1296,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1312,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1328,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1344,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1360,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1376,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1392,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1408,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1424,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1440,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1456,
+      "Y": 96
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 272,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 288,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 304,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 320,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 336,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 352,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 368,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 384,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 400,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 416,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 944,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 960,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 976,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 992,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1008,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1024,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1040,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1056,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1072,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1088,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1104,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1120,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1136,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1152,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1168,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1184,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1200,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1216,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1232,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1248,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1264,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1280,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1296,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1312,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1328,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1344,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1360,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1376,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1392,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1408,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1424,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1440,
+      "Y": 112
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1456,
+      "Y": 112
+    },
+    {
       "Name": "BlocBonus",
       "X": 48,
       "Y": 128
@@ -51,8 +2516,218 @@
       "Y": 128
     },
     {
+      "Name": "CoinBonus",
+      "X": 272,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 288,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 304,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 320,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 336,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 352,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 368,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 384,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 400,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 416,
+      "Y": 128
+    },
+    {
       "Name": "BlocBonus",
       "X": 544,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 960,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 976,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 992,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1008,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1024,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1040,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1056,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1072,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1088,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1104,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1120,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1136,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1152,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1168,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1184,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1200,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1216,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1232,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1248,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1264,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1280,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1296,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1312,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1328,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1344,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1360,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1376,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1392,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1408,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1424,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1440,
+      "Y": 128
+    },
+    {
+      "Name": "CoinBonus",
+      "X": 1456,
       "Y": 128
     },
     {
@@ -122,6 +2797,51 @@
     },
     {
       "Name": "EnemyMushroom",
+      "X": 176,
+      "Y": 368
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 192,
+      "Y": 368
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 208,
+      "Y": 368
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 224,
+      "Y": 368
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 176,
+      "Y": 384
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 192,
+      "Y": 384
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 208,
+      "Y": 384
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 224,
+      "Y": 384
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 240,
+      "Y": 384
+    },
+    {
+      "Name": "EnemyMushroom",
       "X": 880,
       "Y": 384
     },
@@ -129,6 +2849,66 @@
       "Name": "CoinBonus",
       "X": 944,
       "Y": 384
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 176,
+      "Y": 400
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 192,
+      "Y": 400
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 208,
+      "Y": 400
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 224,
+      "Y": 400
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 240,
+      "Y": 400
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 256,
+      "Y": 400
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 176,
+      "Y": 416
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 192,
+      "Y": 416
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 208,
+      "Y": 416
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 224,
+      "Y": 416
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 240,
+      "Y": 416
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 256,
+      "Y": 416
     },
     {
       "Name": "EnemyMushroom",
@@ -142,7 +2922,32 @@
     },
     {
       "Name": "EnemyMushroom",
+      "X": 176,
+      "Y": 432
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 192,
+      "Y": 432
+    },
+    {
+      "Name": "EnemyMushroom",
       "X": 208,
+      "Y": 432
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 224,
+      "Y": 432
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 240,
+      "Y": 432
+    },
+    {
+      "Name": "EnemyMushroom",
+      "X": 256,
       "Y": 432
     },
     {
@@ -164,6 +2969,11 @@
       "Name": "CoinBonus",
       "X": 1424,
       "Y": 448
+    },
+    {
+      "Name": "BlocBonus",
+      "X": 400,
+      "Y": 464
     },
     {
       "Name": "CoinBonus",

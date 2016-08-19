@@ -40,6 +40,7 @@ void Level::init()
 
 void Level::update(unsigned int pTicks)
 {
+	//mAreaManager.updateItems(&mItems);
 
 	updateOnScreenValues();
 	activeItems();
@@ -47,6 +48,7 @@ void Level::update(unsigned int pTicks)
 	{
 		if (lItem->getActive())
 		{
+			//lItem->updateItemsInArea();
 			lItem->update(pTicks);
 		}
 	}
@@ -236,5 +238,10 @@ Level *Level::LoadFromFile(std::string pFilePath)
 	lLevelResult->mCamera.setCollistionMap(lLevelResult->mCollisionMap);
 	lLevelResult->mCamera.setItemToTrack((Item*)*lLevelResult->mPlayerAvatars.begin());
 	
+	Size lLevelSize = lLevelResult->mBackDecorsMap->getSize();
+	int lTileSize = lLevelResult->mBackDecorsMap->getTileSize();
+	lLevelResult->mAreaManager.setLevelSize(Size(lLevelSize.width * lTileSize, lLevelSize.height * lTileSize));
+	lLevelResult->mAreaManager.init();
+
 	return lLevelResult;
 }

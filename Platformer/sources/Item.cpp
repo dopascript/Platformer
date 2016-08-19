@@ -5,6 +5,7 @@
 #include "Map.h"
 #include "Level.h"
 #include "LoadHelper.h"
+#include "Area.h"
 
 using namespace Platformer;
 
@@ -209,7 +210,7 @@ bool Item::testHitSolidItems(Point pPosition)
 {
 	Rectangle lAbsHitBox = getAbsolutHitBox(pPosition);
 	std::vector<Item*> lResult;
-	for (auto& lItem : *mLevel->getItems())
+	for (auto lItem : *mLevel->getItems())
 	{
 		if (lItem == this || !lItem->getIsSolid()) continue;
 
@@ -219,6 +220,29 @@ bool Item::testHitSolidItems(Point pPosition)
 		}
 	}
 	return false;
+}
+
+void Item::updateItemsInArea()
+{
+	for (auto area : mAreas)
+	{
+		for (auto lItem : *area->items())
+		{
+			bool lItemAlreadyInList = false;
+			for (auto lItemInList : mItemsInArea)
+			{
+				if (lItemInList == lItem)
+				{
+					lItemAlreadyInList = true;
+					break;
+				}
+			}
+			if (!lItemAlreadyInList)
+			{
+				mItemsInArea.push_back(lItem);
+			}
+		}
+	}
 }
 
 void Item::draw(SDL_Renderer *pSDL_Renderer, Point pCameraShift, int pTime)
@@ -251,4 +275,21 @@ void Item::updateOnScreenValue(Rectangle &mScreenHitBox)
 bool Item::getIsOnScreen()
 {
 	return mIsOnScreen;
+}
+
+void Item::addArea(Area* pArea)
+{
+	for (auto lArea : mAreas)
+	{
+		if (lArea == pArea)
+		{
+			return;
+		}
+	}
+	mAreas.push_back(pArea);
+}
+
+void Item::clearArea()
+{
+	mAreas.clear();
 }
