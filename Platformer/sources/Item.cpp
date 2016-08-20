@@ -194,7 +194,7 @@ std::vector<Item*> Item::findHitItems(Point pPosition)
 {
 	Rectangle lAbsHitBox = getAbsolutHitBox(pPosition);
 	std::vector<Item*> lResult;
-	for (auto& lItem : *mLevel->getItems())
+	for (auto& lItem : mItemsInArea)//*mLevel->getItems())
 	{
 		if (lItem == this) continue;
 
@@ -210,7 +210,7 @@ bool Item::testHitSolidItems(Point pPosition)
 {
 	Rectangle lAbsHitBox = getAbsolutHitBox(pPosition);
 	std::vector<Item*> lResult;
-	for (auto lItem : *mLevel->getItems())
+	for (auto lItem : mItemsInArea)//*mLevel->getItems())
 	{
 		if (lItem == this || !lItem->getIsSolid()) continue;
 
@@ -224,9 +224,10 @@ bool Item::testHitSolidItems(Point pPosition)
 
 void Item::updateItemsInArea()
 {
+	mItemsInArea.clear();
 	for (auto area : mAreas)
 	{
-		for (auto lItem : *area->items())
+		for (auto lItem : *area->getItems())
 		{
 			bool lItemAlreadyInList = false;
 			for (auto lItemInList : mItemsInArea)
@@ -279,13 +280,6 @@ bool Item::getIsOnScreen()
 
 void Item::addArea(Area* pArea)
 {
-	for (auto lArea : mAreas)
-	{
-		if (lArea == pArea)
-		{
-			return;
-		}
-	}
 	mAreas.push_back(pArea);
 }
 

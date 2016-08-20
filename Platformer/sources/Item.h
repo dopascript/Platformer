@@ -2,7 +2,6 @@
 #define GAMEOBJECT_H
 
 #include <vector>
-#include <list>
 #include <SDL.h>
 #include <json/json.h>
 
@@ -84,8 +83,8 @@ namespace Platformer
 		Color mDrawColor;
 		bool mActive;
 
-		std::list<Area*> mAreas;
-		std::list<Item*> mItemsInArea;
+		std::vector<Area*> mAreas;
+		std::vector<Item*> mItemsInArea;
 		static std::map<std::string, Item*> mItemsTypes;
 	};
 }

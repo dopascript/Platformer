@@ -56,6 +56,7 @@ void BonusMushroom::update(unsigned int pTicks)
 		return;
 	}
 
+	updateItemsInArea();
 	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
 	{
 		Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();

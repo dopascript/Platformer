@@ -54,6 +54,11 @@ void CoinBonus::init(Json::Value pJson)
 
 void CoinBonus::update(unsigned int pTicks)
 {
+	if (!mIsOnScreen)
+	{
+		return;
+	}
+
 	//if (mLevel->getPlayerAvatar()->isDead()) return;
 	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
 	{

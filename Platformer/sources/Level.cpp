@@ -40,7 +40,7 @@ void Level::init()
 
 void Level::update(unsigned int pTicks)
 {
-	//mAreaManager.updateItems(&mItems);
+	mAreaManager.updateItems(&mItems);
 
 	updateOnScreenValues();
 	activeItems();
@@ -48,7 +48,6 @@ void Level::update(unsigned int pTicks)
 	{
 		if (lItem->getActive())
 		{
-			//lItem->updateItemsInArea();
 			lItem->update(pTicks);
 		}
 	}

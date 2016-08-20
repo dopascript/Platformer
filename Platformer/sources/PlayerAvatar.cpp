@@ -92,6 +92,7 @@ void PlayerAvatar::update(unsigned int pTicks)
 {
 	if (!mIsDead)
 	{
+		updateItemsInArea();
 		updateSpecialAppearance(pTicks);
 		updateMoves(pTicks);
 
