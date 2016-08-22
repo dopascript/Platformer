@@ -1,6 +1,7 @@
 #include "AreaManager.h"
 #include "Area.h"
 #include "Item.h"
+#include <algorithm>
 
 using namespace Platformer;
 
@@ -51,6 +52,11 @@ void AreaManager::addItem(Item* pItem)
 	mAbsolutHitBox.y /= AREA_SIZE;
 	mAbsolutHitBox.width /= AREA_SIZE;
 	mAbsolutHitBox.height /= AREA_SIZE;
+
+	mAbsolutHitBox.x = std::min(std::max(mAbsolutHitBox.x,0), mAreaCountX);
+	mAbsolutHitBox.y = std::min(std::max(mAbsolutHitBox.y, 0), mAreaCountY);
+	mAbsolutHitBox.width = std::min(std::max(mAbsolutHitBox.width, 0), mAreaCountX);
+	mAbsolutHitBox.height = std::min(std::max(mAbsolutHitBox.height, 0), mAreaCountY);
 
 	for (int y = mAbsolutHitBox.y; y <= mAbsolutHitBox.y + mAbsolutHitBox.height; y++)
 	{
