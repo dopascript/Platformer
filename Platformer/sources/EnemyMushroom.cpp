@@ -53,6 +53,7 @@ void EnemyMushroom::init(Json::Value pJson)
 void EnemyMushroom::update(unsigned int pTicks)
 {
 	updateItemsInArea();
+
 	Map* lCollisionMap = mLevel->getCollisionMap();
 	if (mPosition.y > lCollisionMap->getTileSize() * lCollisionMap->getSize().height)
 	{
@@ -69,6 +70,11 @@ void EnemyMushroom::update(unsigned int pTicks)
 	}
 	else
 	{
+		if (!mIsOnScreen)
+		{
+			return;
+		}
+
 		updatePlayerHit(pTicks);
 
 		Map* lCollisionMap = mLevel->getCollisionMap();

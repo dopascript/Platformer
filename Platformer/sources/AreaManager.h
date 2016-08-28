@@ -4,7 +4,7 @@
 #include "Size.h"
 #include <list>
 
-#define AREA_SIZE 100
+#define AREA_SIZE 30
 
 namespace Platformer
 {

@@ -53,6 +53,11 @@ void AreaManager::addItem(Item* pItem)
 	mAbsolutHitBox.width /= AREA_SIZE;
 	mAbsolutHitBox.height /= AREA_SIZE;
 
+	mAbsolutHitBox.x -= 1;
+	mAbsolutHitBox.y -= 1;
+	mAbsolutHitBox.width += 2;
+	mAbsolutHitBox.height += 2;
+
 	mAbsolutHitBox.x = std::min(std::max(mAbsolutHitBox.x,0), mAreaCountX);
 	mAbsolutHitBox.y = std::min(std::max(mAbsolutHitBox.y, 0), mAreaCountY);
 	mAbsolutHitBox.width = std::min(std::max(mAbsolutHitBox.width, 0), mAreaCountX);

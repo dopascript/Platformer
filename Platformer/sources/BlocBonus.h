@@ -21,6 +21,7 @@ namespace Platformer
 		void createBonus(unsigned int pTicks);
 
 		FPoint mAcceleration;
+		unsigned int mPunchTime;
 		Point mInitialPosition;
 	};
 }

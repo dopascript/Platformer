@@ -41,6 +41,7 @@ void BlocBonus::init()
 	mSpeed = FPoint(0.0f, 0.0f);
 	mIsSolid = true;
 	mInitialPosition = mPosition;
+	mPunchTime = 0;
 
 	SoundPlayer::getInstance()->addSound("vine", "sounds/vine.wav");
 }
@@ -57,39 +58,40 @@ void BlocBonus::init(Json::Value pJson)
 
 void BlocBonus::update(unsigned int pTicks)
 {
-	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
+	if (pTicks - mPunchTime > 500)
 	{
-		Point lPlayerPosition = lPlayerAvatar->getPosition();
-
-		Point lPlayerTopPosition(lPlayerPosition.x, lPlayerPosition.y - 1);
-		Rectangle lAbsPlayerTopHitBox = lPlayerAvatar->getAbsolutHitBox(lPlayerTopPosition);
-		if (getAbsolutHitBox().testHit(lAbsPlayerTopHitBox))
+		mPosition = mInitialPosition;
+		for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
 		{
-			createBonus(pTicks);
-			mSpeed.y = -3.0f;
-			mAcceleration = FPoint(0.0f, 0.7f);
+			Point lPlayerPosition = lPlayerAvatar->getPosition();
 
-			FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
-			lPlayerSpeed.y = 0;
-			lPlayerAvatar->setSpeed(lPlayerSpeed);
+			Point lPlayerTopPosition(lPlayerPosition.x, lPlayerPosition.y - 1);
+			Rectangle lAbsPlayerTopHitBox = lPlayerAvatar->getAbsolutHitBox(lPlayerTopPosition);
+			if (getAbsolutHitBox().testHit(lAbsPlayerTopHitBox))
+			{
+				createBonus(pTicks);
 
-			SoundPlayer::getInstance()->playSound("vine");
+				FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
+				lPlayerSpeed.y = 0;
+				lPlayerAvatar->setSpeed(lPlayerSpeed);
+
+				SoundPlayer::getInstance()->playSound("vine");
+
+				mPunchTime = pTicks;
+			}
 		}
-	}
-
-	mPosition.y = mPosition.y + (int)mSpeed.y;
-	float lSpeedY = mSpeed.y + mAcceleration.y;
-	int lPositionDifY = mPosition.y - mInitialPosition.y;
-
-	if (std::abs(mPosition.y - mInitialPosition.y) <= 1)
-	{
-		mSpeed.y = 0.0f;
-		mPosition.y = mInitialPosition.y;
 	}
 	else
 	{
-		mSpeed.y = lSpeedY;
-	}
+		if (pTicks - mPunchTime < 250)
+		{
+			mPosition.y--;
+		}
+		else
+		{
+			mPosition.y++;
+		}
+	}	
 }
 
 void BlocBonus::createBonus(unsigned int pTicks)

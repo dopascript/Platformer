@@ -57,17 +57,6 @@ void BonusMushroom::update(unsigned int pTicks)
 	}
 
 	updateItemsInArea();
-	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
-	{
-		Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
-		if (getAbsolutHitBox().testHit(lHitbox))
-		{
-			SoundPlayer::getInstance()->playSound("power-up");
-			lPlayerAvatar->setForm(PlayerAvatarState_Raccoon);
-			mLevel->removeItem(this);
-			return;
-		}
-	}
 
 	if (mBlocOrigine != nullptr &&
 		getAbsolutHitBox().testHit(mBlocOrigine->getAbsolutHitBox()))
@@ -77,6 +66,18 @@ void BonusMushroom::update(unsigned int pTicks)
 	}
 	else
 	{
+		for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
+		{
+			Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
+			if (getAbsolutHitBox().testHit(lHitbox))
+			{
+				SoundPlayer::getInstance()->playSound("power-up");
+				lPlayerAvatar->setForm(PlayerAvatarState_Raccoon);
+				mLevel->removeItem(this);
+				return;
+			}
+		}
+
 		ItemClassicMove(mLevel, this);
 	}
 }
