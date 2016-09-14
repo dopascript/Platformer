@@ -95,6 +95,7 @@
     <ClCompile Include="sources\Area.cpp" />
     <ClCompile Include="sources\Camera.cpp" />
     <ClCompile Include="sources\CircularEnemy.cpp" />
+    <ClCompile Include="sources\Door.cpp" />
     <ClCompile Include="sources\Game.cpp" />
     <ClCompile Include="sources\ItemsTypesListing.cpp" />
   </ItemGroup>
@@ -126,6 +127,7 @@
     <ClInclude Include="sources\Camera.h" />
     <ClInclude Include="sources\Circle.h" />
     <ClInclude Include="sources\CircularEnemy.h" />
+    <ClInclude Include="sources\Door.h" />
     <ClInclude Include="sources\Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

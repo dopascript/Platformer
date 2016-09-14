@@ -117,7 +117,7 @@ void PlayerAvatar::update(unsigned int pTicks)
 		move(mSpeed, CollisionTest_None);
 		if (pTicks - mDeathTime > 2000)
 		{
-			mLevel->setLevelToLoad("levels/level1.json");
+			mLevel->setLevelToLoad("levels/level1.json", Point(-1,-1));
 		}
 	}
 }

@@ -61,7 +61,7 @@ void Game::uninit()
 
 void Game::startPlatformLevel(std::string mPath)
 {
-	mPlatformLevel = Platformer::Level::LoadFromFile(mPath);
+	mPlatformLevel = Platformer::Level::LoadFromFile(mPath, Point(-1, -1));
 	mPlatformLevel->setRenderer(mRenderer);
 	mPlatformLevel->setScreenSize(Size(mScreenSize.width / 2, mScreenSize.height / 2));
 	mPlatformLevel->setGame(this);

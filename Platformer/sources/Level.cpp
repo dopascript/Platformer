@@ -189,12 +189,13 @@ SDL_Texture* Level::getRenderTexture()
 	return mRenderTexture;
 }
 
-void Level::setLevelToLoad(std::string pLevelPath)
+void Level::setLevelToLoad(std::string pLevelPath, Point pAvatarPosition)
 {
 	mLevelToLoad = pLevelPath;
+	mReloadAvatarPosition = pAvatarPosition;
 }
 
-Level *Level::LoadFromFile(std::string pFilePath)
+Level *Level::LoadFromFile(std::string pFilePath, Point pAvatarPosition)
 {
 	Level *lLevelResult = new Level();
 	lLevelResult->init();
@@ -241,6 +242,11 @@ Level *Level::LoadFromFile(std::string pFilePath)
 		Item* lNewItem = Item::createItem(lItemName);
 		if (lNewItem->typeName() == "PlayerAvatar")
 		{
+			if (pAvatarPosition.x != -1 )
+			{
+				lNewItem->setPosition(pAvatarPosition);
+			}
+			
 			lLevelResult->mPlayerAvatars.push_back((PlayerAvatar*)lNewItem);
 		}
 

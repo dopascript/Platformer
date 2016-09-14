@@ -2813,7 +2813,8 @@
     {
       "Name": "PlayerAvatar",
       "X": 96,
-      "Y": 352
+      "Y": 352,
+      "state": "bonjour"
     },
     {
       "Name": "CoinBonus",
@@ -2996,9 +2997,12 @@
       "Y": 528
     },
     {
-      "Name": "BlocBonus",
+      "Name": "Door",
       "X": 96,
-      "Y": 544
+      "Y": 544,
+	  "AvatarPositionX":96,
+	  "AvatarPositionY":344,
+	  "LevelPath":"levels/level1.json"
     },
     {
       "Name": "CoinBonus",

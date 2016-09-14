@@ -154,6 +154,11 @@ namespace PlatformerEditor
                         {
                             jsonItem.Add("Name", "BumperBloc");
                         }
+                        else if (itemMap.Data[i] == 9)
+                        {
+                            jsonItem.Add("Name", "Door");
+                        }
+
                         jsonItem.Add("X", x * itemMap.TileSize);
                         jsonItem.Add("Y", y * itemMap.TileSize);
 
@@ -162,7 +167,15 @@ namespace PlatformerEditor
                             var infoDico = level.ObjectsInfo[new System.Drawing.Point(x, y)];
                             foreach (var key in infoDico.Keys)
                             {
-                                jsonItem.Add(key, infoDico[key]);
+                                string value = infoDico[key].Substring(1);
+                                if (infoDico[key][0] == 'S')
+                                {
+                                    jsonItem.Add(key, value);
+                                }
+                                else
+                                {
+                                    jsonItem.Add(key, int.Parse(value));
+                                }
                             }
                         }
 
@@ -253,7 +266,16 @@ namespace PlatformerEditor
                 {
                     if(propriety.Name != "Name" && propriety.Name != "X" && propriety.Name != "Y")
                     {
-                        info.Add(propriety.Name, propriety.Value.ToString());
+                        string value = propriety.Value.ToString().Substring(1);
+                        if (propriety.Value.Type == JTokenType.Integer)
+                        {
+                            info.Add(propriety.Name, "I" + propriety.Value.ToString());
+                        }
+                        else
+                        {
+                            info.Add(propriety.Name, "S" + propriety.Value.ToString());
+                        }
+                        
                     }
                 }
                 result.ObjectsInfo.Add(new System.Drawing.Point(tileX, tileY), info);
@@ -290,6 +312,10 @@ namespace PlatformerEditor
                 else if (name == "BumperBloc")
                 {
                     mapObjects.Data[index] = 8;
+                }
+                else if (name == "Door")
+                {
+                    mapObjects.Data[index] = 9;
                 }
             }
 
