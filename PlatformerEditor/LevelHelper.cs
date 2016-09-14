@@ -156,6 +156,17 @@ namespace PlatformerEditor
                         }
                         jsonItem.Add("X", x * itemMap.TileSize);
                         jsonItem.Add("Y", y * itemMap.TileSize);
+
+                        if(level.ObjectsInfo.ContainsKey(new System.Drawing.Point(x, y)))
+                        {
+                            var infoDico = level.ObjectsInfo[new System.Drawing.Point(x, y)];
+                            foreach (var key in infoDico.Keys)
+                            {
+                                jsonItem.Add(key, infoDico[key]);
+                            }
+                        }
+
+
                         jsonItems.Add(jsonItem);
                     }
                 }
@@ -169,7 +180,8 @@ namespace PlatformerEditor
         static public Level LoadJson(string path)
         {
             Level result = new Level();
-            
+            result.ObjectsInfo = new Dictionary<System.Drawing.Point, Dictionary<string, string>>();
+
             result.Path = path;
             string json = File.ReadAllText(path);
             var jsonLevel = JObject.Parse(json);
@@ -229,12 +241,24 @@ namespace PlatformerEditor
                     Size = collisionMap.Size
                 };
 
-            foreach (var jsonItem in jsonLevel["Items"].ToArray())
+            foreach (JObject jsonItem in jsonLevel["Items"].ToArray())
             {
                 string name = jsonItem["Name"].ToString();
                 int tileX = int.Parse(jsonItem["X"].ToString()) / collisionMap.TileSize;
                 int tileY = int.Parse(jsonItem["Y"].ToString()) / collisionMap.TileSize;
                 int index = tileY * mapObjects.Size.Width + tileX;
+
+                Dictionary<string, string> info = new Dictionary<string, string>();
+                foreach(var propriety in jsonItem.Properties())
+                {
+                    if(propriety.Name != "Name" && propriety.Name != "X" && propriety.Name != "Y")
+                    {
+                        info.Add(propriety.Name, propriety.Value.ToString());
+                    }
+                }
+                result.ObjectsInfo.Add(new System.Drawing.Point(tileX, tileY), info);
+
+
                 if (name == "PlayerAvatar")
                 {
                     mapObjects.Data[index] = 1;

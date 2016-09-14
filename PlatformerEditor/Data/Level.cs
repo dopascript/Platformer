@@ -13,5 +13,7 @@ namespace PlatformerEditor.Data
 
         public Color BackgroundColor { get; set; }
         public List<Map> Maps { get; set; }
+
+        public Dictionary<Point, Dictionary<string, string>> ObjectsInfo { get; set; }
     }
 }
