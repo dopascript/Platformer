@@ -31,6 +31,11 @@ void Duplicator::update(unsigned int pTicks)
 
 void Duplicator::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 {
+	if (mUsed)
+	{
+		return;
+	}
+
 	PlayerAvatar* lPlayerAvatar = (PlayerAvatar*)pAvatar;
 	Rectangle lAbsPlayerHitBox = lPlayerAvatar->getAbsolutHitBox(lPlayerAvatar->getPosition());
 	if (getAbsolutHitBox().testHit(lAbsPlayerHitBox))
@@ -40,6 +45,7 @@ void Duplicator::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 		lNewAvatar->setPosition(mNewAvatarPosition);
 		lNewAvatar->init();
 		mLevel->addItem(lNewAvatar);
+		mUsed = true;
 	}
 }
 

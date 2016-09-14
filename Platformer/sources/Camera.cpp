@@ -44,13 +44,22 @@ void Camera::update(unsigned int pTicks)
 	}
 	else
 	{
+		int lAvatarCount = 0;
+		PlayerAvatar* lFirstAvatar = *(mLevel->getPlayerAvatars()->begin());
 		for (PlayerAvatar* lAvatar : *(mLevel->getPlayerAvatars()))
 		{
+			if (lAvatarCount > 0 && 
+				(std::abs(lFirstAvatar->getPosition().x - lAvatar->getPosition().x) > mScreenSize.width - 100 ||
+				 std::abs(lFirstAvatar->getPosition().y - lAvatar->getPosition().y) > mScreenSize.height - 100))
+			{
+				continue;
+			}
 			lPositionToTrack.x += lAvatar->getPosition().x;
 			lPositionToTrack.y += lAvatar->getPosition().y;
+			lAvatarCount++;
 		}
-		lPositionToTrack.x /= mLevel->getPlayerAvatars()->size();
-		lPositionToTrack.y /= mLevel->getPlayerAvatars()->size();
+		lPositionToTrack.x /= lAvatarCount;
+		lPositionToTrack.y /= lAvatarCount;
 	}
 
 	int lCameraShiftX = lPositionToTrack.x - (mScreenSize.width / 2);

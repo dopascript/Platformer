@@ -21,7 +21,14 @@ void Door::init(Json::Value pJson)
 
 	mAvatarPosition.x = pJson["AvatarPositionX"].asInt();
 	mAvatarPosition.y = pJson["AvatarPositionY"].asInt();
-	mLevelPath = pJson["LevelPath"].asString();
+	if (pJson.isMember("LevelPath"))
+	{
+		mLevelPath = pJson["LevelPath"].asString();
+	}
+	else
+	{
+		mLevelPath = "";
+	}
 }
 
 void Door::update(unsigned int pTicks)
