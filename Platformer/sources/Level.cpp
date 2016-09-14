@@ -177,6 +177,10 @@ void Level::removeItem(Item *pItem)
 void Level::addItem(Item *pItem)
 {
 	mItemsToAdd.push_back(pItem);
+	if (pItem->typeName() == "PlayerAvatar")
+	{
+		mPlayerAvatars.push_back((PlayerAvatar*)pItem);
+	}
 }
 
 void Level::addItemToBack(Item *pItem)
@@ -246,8 +250,6 @@ Level *Level::LoadFromFile(std::string pFilePath, Point pAvatarPosition)
 			{
 				lNewItem->setPosition(pAvatarPosition);
 			}
-			
-			lLevelResult->mPlayerAvatars.push_back((PlayerAvatar*)lNewItem);
 		}
 
 		lNewItem->setLevel(lLevelResult);

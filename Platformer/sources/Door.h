@@ -17,9 +17,6 @@ namespace Platformer
 		virtual Item* createItem();
 		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
 	protected:
-
-		void createBonus(unsigned int pTicks);
-
 		std::string mLevelPath;
 		Point mAvatarPosition;
 	};

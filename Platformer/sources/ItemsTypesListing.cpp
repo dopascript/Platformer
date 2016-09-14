@@ -7,6 +7,7 @@
 #include "CoinBonus.h"
 #include "CircularEnemy.h"
 #include "Door.h"
+#include "Duplicator.h"
 
 using namespace Platformer;
 
@@ -20,6 +21,7 @@ void Item::itemsTypesListing()
 	addItemsType(new CoinBonus());
 	addItemsType(new CircularEnemy());
 	addItemsType(new Door());
+	addItemsType(new Duplicator());
 }
 
 void Item::addItemsType(Item *pItem)

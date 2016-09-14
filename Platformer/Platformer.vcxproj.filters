@@ -104,6 +104,9 @@
     <ClCompile Include="sources\Door.cpp">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Duplicator.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources/Color.h">
@@ -191,6 +194,9 @@
       <Filter>Fichiers sources\Platformer</Filter>
     </ClInclude>
     <ClInclude Include="sources\Door.h">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\Duplicator.h">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClInclude>
   </ItemGroup>

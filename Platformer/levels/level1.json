@@ -2997,11 +2997,11 @@
       "Y": 528
     },
     {
-      "Name": "Door",
+      "Name": "Duplicator",
       "X": 96,
       "Y": 544,
-	  "AvatarPositionX":96,
-	  "AvatarPositionY":344,
+	  "NewAvatarPositionX":76,
+	  "NewAvatarPositionY":344,
 	  "LevelPath":"levels/level1.json"
     },
     {

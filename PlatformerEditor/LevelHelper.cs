@@ -158,6 +158,10 @@ namespace PlatformerEditor
                         {
                             jsonItem.Add("Name", "Door");
                         }
+                        else if (itemMap.Data[i] == 10)
+                        {
+                            jsonItem.Add("Name", "Duplicator");
+                        }
 
                         jsonItem.Add("X", x * itemMap.TileSize);
                         jsonItem.Add("Y", y * itemMap.TileSize);
@@ -316,6 +320,10 @@ namespace PlatformerEditor
                 else if (name == "Door")
                 {
                     mapObjects.Data[index] = 9;
+                }
+                else if (name == "Duplicator")
+                {
+                    mapObjects.Data[index] = 10;
                 }
             }
 

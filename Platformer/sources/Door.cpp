@@ -1,8 +1,6 @@
 #include "Door.h"
-#include "ImageLibrary.h"
 #include "SoundPlayer.h"
 #include "Level.h"
-#include "BonusMushroom.h"
 
 using namespace Platformer;
 
