@@ -37,6 +37,8 @@ void BonusMushroom::init()
 	mSpeed = FPoint(2.1f, 0);
 
 	SoundPlayer::getInstance()->addSound("power-up", "sounds/power-up.wav");
+
+	mNeedListItemsProximity = true;
 }
 
 void BonusMushroom::init(Json::Value pJson)

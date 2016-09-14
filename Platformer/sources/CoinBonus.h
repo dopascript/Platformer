@@ -15,6 +15,7 @@ namespace Platformer
 		virtual void update(unsigned int pTicks);
 		virtual std::string typeName();
 		virtual Item* createItem();
+		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
 	protected:
 
 	};

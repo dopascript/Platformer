@@ -7,7 +7,7 @@ void Game::setRenderer(SDL_Renderer* pRenderer)
 
 void Game::setWindowSize(Size pSize)
 {
-	pScreenSize = pSize;
+	mScreenSize = pSize;
 }
 
 void Game::init()
@@ -39,13 +39,13 @@ void Game::draw(SDL_Renderer *pSDL_Renderer, unsigned int pTicks)
 		SDL_Rect destination;
 		destination.x = 0;
 		destination.y = 0;
-		destination.w = pScreenSize.width;
-		destination.h = pScreenSize.height;
+		destination.w = mScreenSize.width;
+		destination.h = mScreenSize.height;
 		SDL_Rect rect;
 		rect.x = 0;
 		rect.y = 0;
-		rect.w = pScreenSize.width / 2;
-		rect.h = pScreenSize.height / 2;
+		rect.w = mScreenSize.width / 2;
+		rect.h = mScreenSize.height / 2;
 		SDL_RenderCopy(pSDL_Renderer, mPlatformLevel->getRenderTexture(), &rect, &destination);
 	}
 	else
@@ -63,7 +63,7 @@ void Game::startPlatformLevel(std::string mPath)
 {
 	mPlatformLevel = Platformer::Level::LoadFromFile(mPath);
 	mPlatformLevel->setRenderer(mRenderer);
-	mPlatformLevel->setScreenSize(Size(pScreenSize.width / 2, pScreenSize.height / 2));
+	mPlatformLevel->setScreenSize(Size(mScreenSize.width / 2, mScreenSize.height / 2));
 	mPlatformLevel->setGame(this);
 	mPlatformLevel->init();
 }

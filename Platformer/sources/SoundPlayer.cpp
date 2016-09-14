@@ -24,7 +24,7 @@ void SoundPlayer::addSound(std::string pSoundName, std::string pSoundPath)
 
 void SoundPlayer::playSound(std::string pSoundName)
 {
-	Mix_PlayChannel(-1, mLibraray[pSoundName], 0);
+	//Mix_PlayChannel(-1, mLibraray[pSoundName], 0);
 }
 
 

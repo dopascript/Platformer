@@ -13,8 +13,10 @@ std::map<std::string, Item*> Item::mItemsTypes;
 
 Item::Item()
 {
+	mItemsProximityCount = 0;
 	mActive = false;
 	mIsSolid = false;
+	mNeedListItemsProximity = false;
 	mDrawColor = Color(255, 255, 255, 255);
 }
 
@@ -194,8 +196,10 @@ std::vector<Item*> Item::findHitItems(Point pPosition)
 {
 	Rectangle lAbsHitBox = getAbsolutHitBox(pPosition);
 	std::vector<Item*> lResult;
-	for (auto& lItem : *mLevel->getItems())
+	//for (auto lItem : *mLevel->getItems())
+	for (int i = 0; i < mItemsProximityCount; i++)
 	{
+		Item* lItem = mItemsProximity[i];
 		if (lItem == this) continue;
 
 		if (lAbsHitBox.testHit(lItem->getAbsolutHitBox()))
@@ -210,8 +214,10 @@ bool Item::testHitSolidItems(Point pPosition)
 {
 	Rectangle lAbsHitBox = getAbsolutHitBox(pPosition);
 	std::vector<Item*> lResult;
-	for (auto lItem : *mLevel->getItems())
+	//for (auto lItem : *mLevel->getItems())
+	for(int i = 0;i < mItemsProximityCount;i++)
 	{
+		Item* lItem = mItemsProximity[i];
 		if (lItem == this || !lItem->getIsSolid()) continue;
 
 		if (lAbsHitBox.testHit(lItem->getAbsolutHitBox()))
@@ -222,27 +228,31 @@ bool Item::testHitSolidItems(Point pPosition)
 	return false;
 }
 
-void Item::updateItemsInArea()
+void Item::addItemProximity(Item* pItem)
 {
-	for (auto area : mAreas)
+	if (!mNeedListItemsProximity || mItemsProximityCount == ITEMS_PROXIMITY_MAX - 1)
 	{
-		for (auto lItem : *area->items())
+		return;
+	}
+
+	if (mItemsProximityCount > 0)
+	{
+		for (int i = mItemsProximityCount - 1; i >= 0; i--)
 		{
-			bool lItemAlreadyInList = false;
-			for (auto lItemInList : mItemsInArea)
+			if (mItemsProximity[i] == pItem)
 			{
-				if (lItemInList == lItem)
-				{
-					lItemAlreadyInList = true;
-					break;
-				}
-			}
-			if (!lItemAlreadyInList)
-			{
-				mItemsInArea.push_back(lItem);
+				return;
 			}
 		}
 	}
+
+	mItemsProximity[mItemsProximityCount] = pItem;
+	mItemsProximityCount++;
+}
+
+void Item::clearItemsProximity()
+{
+	mItemsProximityCount = 0;
 }
 
 void Item::draw(SDL_Renderer *pSDL_Renderer, Point pCameraShift, int pTime)
@@ -277,19 +287,7 @@ bool Item::getIsOnScreen()
 	return mIsOnScreen;
 }
 
-void Item::addArea(Area* pArea)
+void Item::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 {
-	for (auto lArea : mAreas)
-	{
-		if (lArea == pArea)
-		{
-			return;
-		}
-	}
-	mAreas.push_back(pArea);
-}
 
-void Item::clearArea()
-{
-	mAreas.clear();
 }

@@ -54,16 +54,18 @@ void CoinBonus::init(Json::Value pJson)
 
 void CoinBonus::update(unsigned int pTicks)
 {
-	//if (mLevel->getPlayerAvatar()->isDead()) return;
-	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
+
+}
+
+void CoinBonus::onAvatarProximity(unsigned int pTime, Item* pAvatar)
+{
+	PlayerAvatar* lPlayerAvatar = (PlayerAvatar*)pAvatar;
+	Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
+	if (getAbsolutHitBox().testHit(lHitbox))
 	{
-		Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
-		if (getAbsolutHitBox().testHit(lHitbox))
-		{
-			mLevel->removeItem(this);
-			SoundPlayer::getInstance()->playSound("coin");
-			return;
-		}
+		mLevel->removeItem(this);
+		SoundPlayer::getInstance()->playSound("coin");
+		return;
 	}
 }
 

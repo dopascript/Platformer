@@ -16,8 +16,8 @@ namespace Platformer
 		void hit(unsigned int pTime);
 		virtual std::string typeName();
 		virtual Item* createItem();
+		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
 	protected:
-		void updatePlayerHit(unsigned int pTime);
 
 		bool mIsDead;
 		int mKillTime;

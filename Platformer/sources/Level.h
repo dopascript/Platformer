@@ -37,6 +37,8 @@ namespace Platformer
 		void addItem(Item *pItem);
 		void addItemToBack(Item *pItem);
 
+		void setLevelToLoad(std::string pLevelPath);
+
 		static Level *LoadFromFile(std::string pFilePath);
 
 		SDL_Texture* getRenderTexture();
@@ -67,6 +69,7 @@ namespace Platformer
 		Rectangle mScreenHitBox;
 		Camera mCamera;
 		AreaManager mAreaManager;
+		std::string mLevelToLoad;
 
 		Game* mGame;
 	};

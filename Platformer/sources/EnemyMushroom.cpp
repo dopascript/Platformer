@@ -37,7 +37,6 @@ void EnemyMushroom::init()
 
 	mSpeed = FPoint(-2.1f,0);
 	mIsDead = false;
-
 	SoundPlayer::getInstance()->addSound("stomp", "sounds/stomp.wav");
 }
 
@@ -68,8 +67,6 @@ void EnemyMushroom::update(unsigned int pTicks)
 	}
 	else
 	{
-		updatePlayerHit(pTicks);
-
 		Map* lCollisionMap = mLevel->getCollisionMap();
 		int lDirection = mSpeed.x > 0.0f ? 1 : -1;
 		Point lNextBlocPosition(mPosition.x + (lDirection * lCollisionMap->getTileSize()), mPosition.y + lCollisionMap->getTileSize() + 1);
@@ -82,26 +79,32 @@ void EnemyMushroom::update(unsigned int pTicks)
 	}
 }
 
-void EnemyMushroom::updatePlayerHit(unsigned int pTime)
+void EnemyMushroom::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 {
-	for (auto &lPlayerAvatar : *mLevel->getPlayerAvatars())
+	if (mIsDead)
 	{
-		FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
-		if (lPlayerAvatar->getSpeed().y > 1.0f)
+		return;
+	}
+
+	PlayerAvatar* lPlayerAvatar = (PlayerAvatar*)pAvatar;
+	FPoint lPlayerSpeed = lPlayerAvatar->getSpeed();
+	if (lPlayerAvatar->getSpeed().y > 1.0f)
+	{
+		Point lBottomPosition(mPosition.x, mPosition.y + 1);
+		Rectangle lAbsBottomHitBox = getAbsolutHitBox(lBottomPosition);
+		if (getAbsolutHitBox().testHit(lPlayerAvatar->getAbsolutHitBox()))
 		{
-			Point lBottomPosition(mPosition.x, mPosition.y + 1);
-			Rectangle lAbsBottomHitBox = getAbsolutHitBox(lBottomPosition);
-			if (getAbsolutHitBox().testHit(lPlayerAvatar->getAbsolutHitBox()))
-			{
-				hit(pTime);
-				lPlayerSpeed.y = -5.0f;
-				lPlayerAvatar->setSpeed(lPlayerSpeed);
-				SoundPlayer::getInstance()->playSound("stomp");
-				return;
-			}
+			hit(pTime);
+			lPlayerSpeed.y = -5.0f;
+			lPlayerAvatar->setSpeed(lPlayerSpeed);
+			lPlayerAvatar->setKilling(pTime);
+			SoundPlayer::getInstance()->playSound("stomp");
+			return;
 		}
+	}
 
-
+	if (!lPlayerAvatar->isKilling(pTime))
+	{
 		Rectangle lHitbox = lPlayerAvatar->getAbsolutHitBox();
 		if (getAbsolutHitBox().testHit(lHitbox))
 		{

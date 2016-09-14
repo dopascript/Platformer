@@ -72,6 +72,9 @@ void PlayerAvatar::init()
 	mUntouchable = false;
 	mUntouchableRemainingTime = 0;
 	mUsingParachute = false;
+	mNeedListItemsProximity = true;
+	mKillingTime = 0;
+	mDeathTime = 0;
 
 	setForm(PlayerAvatarState_Tiny);
 
@@ -100,12 +103,22 @@ void PlayerAvatar::update(unsigned int pTicks)
 		{
 			kill(pTicks);
 		}
+
+		for (int lItemProximityIndex = 0; lItemProximityIndex < mItemsProximityCount; lItemProximityIndex++)
+		{
+			Item* lItemProximity = mItemsProximity[lItemProximityIndex];
+			lItemProximity->onAvatarProximity(pTicks, this);
+		}
 	}
 	else
 	{
 		float lSpeedY = mSpeed.y + 0.2f;
 		mSpeed.y = std::min(lSpeedY, 6.0f);
 		move(mSpeed, CollisionTest_None);
+		if (pTicks - mDeathTime > 2000)
+		{
+			mLevel->setLevelToLoad("levels/level1.json");
+		}
 	}
 }
 
@@ -356,6 +369,7 @@ void PlayerAvatar::kill(unsigned int pTicks)
 	if (mIsDead) return;
 
 	mIsDead = true;
+	mDeathTime = pTicks;
 	mSprite.setFrame(20);
 	mSpeed = FPoint(0, -5);
 	SoundPlayer::getInstance()->playSound("player-down");
@@ -420,4 +434,14 @@ std::string PlayerAvatar::typeName()
 Item* PlayerAvatar::createItem()
 {
 	return new PlayerAvatar();
+}
+
+void PlayerAvatar::setKilling(unsigned int pTime)
+{
+	mKillingTime = pTime;
+}
+
+bool PlayerAvatar::isKilling(unsigned int pTime)
+{
+	return pTime - mKillingTime < 100;
 }

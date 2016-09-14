@@ -24,6 +24,7 @@ void MobilePlatform::init()
 	Point mEndPosition;
 
 	mIsSolid = true;
+	mNeedListItemsProximity = true;
 }
 
 void MobilePlatform::init(Json::Value pJson)
@@ -63,8 +64,10 @@ void MobilePlatform::update(unsigned int pTicks)
 	std::vector<Item*> mItemsOnPlatform;
 	Point lTopPosition(mPosition.x, mPosition.y - 1);
 	Rectangle lTopPositionAbsHitBox = getAbsolutHitBox(lTopPosition);
-	for (auto& lItem : *mLevel->getItems())
+	//for (auto lItem : *mLevel->getItems())
+	for (int i = 0; i < mItemsProximityCount; i++)
 	{
+  		Item* lItem = mItemsProximity[i];
 		if (this == lItem) continue;
 
 		Rectangle lItemAbsHitBox = lItem->getAbsolutHitBox();
@@ -86,8 +89,10 @@ void MobilePlatform::update(unsigned int pTicks)
 
 	//Move colliding objects 
 	Rectangle lAbsHitBox = getAbsolutHitBox();
-	for (auto& lItem : *mLevel->getItems())
+	//for (auto lItem : *mLevel->getItems())
+	for (int i = 0; i < mItemsProximityCount; i++)
 	{
+		Item* lItem = mItemsProximity[i];
 		if (this == lItem) continue;
 
 		Rectangle lItemAbsHitBox = lItem->getAbsolutHitBox();

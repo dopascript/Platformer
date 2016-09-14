@@ -19,6 +19,8 @@ namespace Platformer
 		void setForm(PlayerAvatarForm pPlayerAvatarForm);
 		bool isDead();
 		void hit(unsigned int pTicks);
+		void setKilling(unsigned int pTime);
+		bool isKilling(unsigned int pTime);
 		virtual std::string typeName();
 		virtual Item* createItem();
 	protected:
@@ -34,6 +36,7 @@ namespace Platformer
 		std::string mRunAnimation;
 
 		bool mIsDead;
+		int mDeathTime;
 
 		bool mUntouchable;
 		int mUntouchableStartTime;
@@ -42,6 +45,7 @@ namespace Platformer
 		bool mUsingParachute;
 		bool mCrouched;
 		bool mSlidding;
+		unsigned int mKillingTime;
 	};
 }
 

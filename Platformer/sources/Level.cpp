@@ -7,6 +7,7 @@
 
 #include "ImageLibrary.h"
 #include "LoadHelper.h"
+#include "Game.h"
 
 using namespace Platformer;
 
@@ -30,6 +31,7 @@ void Level::setGame(Game* pGame)
 
 void Level::init()
 {
+	mLevelToLoad = "";
 	mScreenSize = Size(400, 300);
 	mRenderTexture = SDL_CreateTexture(mRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, mScreenSize.width, mScreenSize.height);
 	mScreenHitBox.width = mScreenSize.width;
@@ -40,24 +42,31 @@ void Level::init()
 
 void Level::update(unsigned int pTicks)
 {
-	//mAreaManager.updateItems(&mItems);
-
+	mAreaManager.updateItems(&mItems);
+	
+	unsigned int lTicks = SDL_GetTicks();
 	updateOnScreenValues();
 	activeItems();
 	for (auto &lItem : mItems)
 	{
 		if (lItem->getActive())
 		{
-			//lItem->updateItemsInArea();
 			lItem->update(pTicks);
 		}
 	}
 
 	removeItems();
 	addItems();
+	unsigned int lDiff = SDL_GetTicks() - lTicks;
 
 	mCamera.update(pTicks);
 	updateScreenHitBox();
+	
+	if (mLevelToLoad != "")
+	{
+		mGame->startPlatformLevel(mLevelToLoad);
+	}
+
 }
 
 void Level::activeItems()
@@ -178,6 +187,11 @@ void Level::addItemToBack(Item *pItem)
 SDL_Texture* Level::getRenderTexture()
 {
 	return mRenderTexture;
+}
+
+void Level::setLevelToLoad(std::string pLevelPath)
+{
+	mLevelToLoad = pLevelPath;
 }
 
 Level *Level::LoadFromFile(std::string pFilePath)

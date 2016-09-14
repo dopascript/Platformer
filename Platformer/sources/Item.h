@@ -11,6 +11,8 @@
 #include "FPoint.h"
 #include "Color.h"
 
+#define ITEMS_PROXIMITY_MAX 100
+
 namespace Platformer
 {
 	class Level;
@@ -69,9 +71,11 @@ namespace Platformer
 		static bool itemTypeExist(std::string pName);
 		static void itemsTypesListing();
 
-		void addArea(Area* pArea);
-		void clearArea();
-		void updateItemsInArea();
+		void addItemProximity(Item* pItem);
+		void clearItemsProximity();
+		//Item** itemsInArea();
+		//int itemsInAreaCount();
+		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
 	protected:
 		Level *mLevel;
 		Sprite mSprite;
@@ -80,12 +84,12 @@ namespace Platformer
 		FPoint mSpeed;
 		bool mIsSolid;
 		bool mIsOnScreen;
-
+		bool mNeedListItemsProximity;
 		Color mDrawColor;
 		bool mActive;
 
-		std::list<Area*> mAreas;
-		std::list<Item*> mItemsInArea;
+		Item* mItemsProximity[ITEMS_PROXIMITY_MAX];
+		int mItemsProximityCount;
 		static std::map<std::string, Item*> mItemsTypes;
 	};
 }

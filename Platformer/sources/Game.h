@@ -23,7 +23,7 @@ protected:
 	SDL_Renderer* mRenderer;
 	Platformer::Level* mPlatformLevel;
 	Menu::MainMenu* mMainMenu;
-	Size pScreenSize;
+	Size mScreenSize;
 };
 
 #endif
