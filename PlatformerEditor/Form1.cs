@@ -22,6 +22,12 @@ namespace PlatformerEditor
 
             _levelViewer = new LevelViewer();
             elementHost1.Child = _levelViewer;
+            _levelViewer.onPointerChangePosition += levelViewer_onPointerChangePosition;
+        }
+
+        private void levelViewer_onPointerChangePosition(Point position)
+        {
+            toolStripStatusLabel1.Text = "Position : " + position.X.ToString() + "," + position.Y.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)

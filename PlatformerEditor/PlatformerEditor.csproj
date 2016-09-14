@@ -68,9 +68,18 @@
       <DependentUpon>LevelViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="PropertiesEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertiesEditor.Designer.cs">
+      <DependentUpon>PropertiesEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertiesEditor.resx">
+      <DependentUpon>PropertiesEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

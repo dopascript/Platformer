@@ -26,6 +26,9 @@ namespace PlatformerEditor
         Dictionary<string, Canvas> _mapViews;
         Dictionary<string, BitmapImage> _textures;
 
+        public delegate void PointerChangePosition(System.Drawing.Point position);
+        public event PointerChangePosition onPointerChangePosition;
+
         private string _currentSelectedMap;
         public string CurrentSelectedMap 
         {
@@ -145,19 +148,46 @@ namespace PlatformerEditor
         bool _buttonPressed;
         private void LevelGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            _buttonPressed = true;
-            var position = e.GetPosition(LevelGrid);
-            addTile(SelectedTileNumber, position);
+            if(e.RightButton == MouseButtonState.Pressed)
+            {
+                
+                var map = _level.Maps.First(m => m.Name == CurrentSelectedMap);
+                var mousePosition = e.GetPosition(LevelGrid);
+                int tileX = (int)mousePosition.X / map.TileSize;
+                int tileY = (int)mousePosition.Y / map.TileSize;
+                var tilePosition = new System.Drawing.Point(tileX, tileY);
+                if (_level.ObjectsInfo.ContainsKey(tilePosition))
+                {
+                    PropertiesEditor PropertiesEditorForm = new PropertiesEditor();
+                    PropertiesEditorForm.setInfo(_level.ObjectsInfo[tilePosition]);
+                    PropertiesEditorForm.ShowDialog();
+                    _level.ObjectsInfo[tilePosition] = PropertiesEditorForm.getInfo();
+                }
+            }
+            else if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                _buttonPressed = true;
+                var position = e.GetPosition(LevelGrid);
+                addTile(SelectedTileNumber, position);
+            }
+
         }
 
         private void LevelGrid_MouseMove(object sender, MouseEventArgs e)
         {
+            if(onPointerChangePosition != null)
+            {
+                var p = e.GetPosition(LevelGrid);
+                onPointerChangePosition(new System.Drawing.Point((int)p.X, (int)p.Y));
+            }
+            
             if (_buttonPressed)
             {
                 var position = e.GetPosition(LevelGrid);
                 removeTile(position);
                 addTile(SelectedTileNumber, position);
             }
+           
         }
 
         private void LevelGrid_MouseUp(object sender, MouseButtonEventArgs e)
