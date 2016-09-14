@@ -256,7 +256,7 @@ Level *Level::LoadFromFile(std::string pFilePath, Point pAvatarPosition)
 	}
 
 	lLevelResult->mCamera.setCollistionMap(lLevelResult->mCollisionMap);
-	lLevelResult->mCamera.setItemToTrack((Item*)*lLevelResult->mPlayerAvatars.begin());
+	lLevelResult->mCamera.setLevel(lLevelResult);
 	
 	Size lLevelSize = lLevelResult->mBackDecorsMap->getSize();
 	int lTileSize = lLevelResult->mBackDecorsMap->getTileSize();

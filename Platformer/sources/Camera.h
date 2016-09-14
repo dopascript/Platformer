@@ -1,16 +1,20 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Item.h"
 #include "Point.h"
 #include "Size.h"
-#include "Map.h"
 
 namespace Platformer
 {
+	class Item;
+	class Map;
+	class Level;
+
 	class Camera
 	{
 	public:
+		Camera();
+		void setLevel(Level* pLevel);
 		void setScreenSize(Size pSize);
 		void setCollistionMap(Map* pMap);
 		void setItemToTrack(Item* pItemToTrack);
@@ -26,6 +30,7 @@ namespace Platformer
 		Point mCurrentShift;
 		Item* mItemToTrack;
 		Size mScreenSize;
+		Level* mLevel;
 	};
 }
 

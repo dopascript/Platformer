@@ -2,6 +2,7 @@
 #define POINT_H
 
 #include <SDL.h>
+#include <cmath>
 
 class Point
 {
