@@ -62,8 +62,8 @@ void Camera::update(unsigned int pTicks)
 		lPositionToTrack.y /= lAvatarCount;
 	}
 
-	int lCameraShiftX = lPositionToTrack.x - (mScreenSize.width / 2);
-	int lCameraShiftY = lPositionToTrack.y - (mScreenSize.width / 2);
+	int lCameraShiftX = 0;
+	int lCameraShiftY = 0;
 
 	int lPixelMapWidth = mCollisionMap->getSize().width * mCollisionMap->getTileSize();
 	if (lPixelMapWidth < mScreenSize.width)
@@ -72,6 +72,10 @@ void Camera::update(unsigned int pTicks)
 	}
 	else
 	{
+		int lCameraShiftXTarget = lPositionToTrack.x - (mScreenSize.width / 2);
+		int lDecalX = (mCurrentShift.x * -1) - lCameraShiftXTarget;
+		lDecalX = std::min(std::max(lDecalX, -8), 8);
+		lCameraShiftX = (mCurrentShift.x * -1) - lDecalX;
 		lCameraShiftX = std::min(std::max(lCameraShiftX, 0), lPixelMapWidth - mScreenSize.width);
 	}
 
@@ -82,6 +86,10 @@ void Camera::update(unsigned int pTicks)
 	}
 	else
 	{
+		int lCameraShiftYTarget = lPositionToTrack.y - (mScreenSize.height / 2);
+		int lDecalY = (mCurrentShift.y * -1) - lCameraShiftYTarget;
+		lDecalY = std::min(std::max(lDecalY, -8), 8);
+		lCameraShiftY = (mCurrentShift.y * -1) - lDecalY;
 		lCameraShiftY = std::min(std::max(lCameraShiftY, 0), lPixelMapHeight - mScreenSize.height);
 	}
 	mCurrentShift.x = lCameraShiftX * -1;
