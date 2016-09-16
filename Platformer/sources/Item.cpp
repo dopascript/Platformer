@@ -265,8 +265,8 @@ void Item::draw(SDL_Renderer *pSDL_Renderer, Point pCameraShift, int pTime)
 	SDL_Point lCenter = mSprite.getOrigin().toSDL_Point();
 	SDL_RendererFlip lHorizontalFlip = mSprite.getHorizontalFlip() ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
 
-	SDL_SetTextureColorMod(mSprite.getTexture(), mDrawColor.r, mDrawColor.g, mDrawColor.a);
-
+	SDL_SetTextureColorMod(mSprite.getTexture(), mDrawColor.r, mDrawColor.g, mDrawColor.b);
+	SDL_SetTextureAlphaMod(mSprite.getTexture(), mDrawColor.a);
 	SDL_RenderCopyEx(
 		pSDL_Renderer,
 		mSprite.getTexture(),

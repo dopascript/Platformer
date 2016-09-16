@@ -37,30 +37,7 @@ void Camera::init()
 
 void Camera::update(unsigned int pTicks)
 {
-	Point lPositionToTrack(0,0);
-	if (mItemToTrack != nullptr)
-	{
-		lPositionToTrack = mItemToTrack->getPosition();
-	}
-	else
-	{
-		int lAvatarCount = 0;
-		PlayerAvatar* lFirstAvatar = *(mLevel->getPlayerAvatars()->begin());
-		for (PlayerAvatar* lAvatar : *(mLevel->getPlayerAvatars()))
-		{
-			if (lAvatarCount > 0 && 
-				(std::abs(lFirstAvatar->getPosition().x - lAvatar->getPosition().x) > mScreenSize.width - 100 ||
-				 std::abs(lFirstAvatar->getPosition().y - lAvatar->getPosition().y) > mScreenSize.height - 100))
-			{
-				continue;
-			}
-			lPositionToTrack.x += lAvatar->getPosition().x;
-			lPositionToTrack.y += lAvatar->getPosition().y;
-			lAvatarCount++;
-		}
-		lPositionToTrack.x /= lAvatarCount;
-		lPositionToTrack.y /= lAvatarCount;
-	}
+	getPositionToTrack();
 
 	int lCameraShiftX = 0;
 	int lCameraShiftY = 0;
@@ -72,7 +49,7 @@ void Camera::update(unsigned int pTicks)
 	}
 	else
 	{
-		int lCameraShiftXTarget = lPositionToTrack.x - (mScreenSize.width / 2);
+		int lCameraShiftXTarget = mPositionToTrack.x - (mScreenSize.width / 2);
 		int lDecalX = (mCurrentShift.x * -1) - lCameraShiftXTarget;
 		lDecalX = std::min(std::max(lDecalX, -8), 8);
 		lCameraShiftX = (mCurrentShift.x * -1) - lDecalX;
@@ -86,7 +63,7 @@ void Camera::update(unsigned int pTicks)
 	}
 	else
 	{
-		int lCameraShiftYTarget = lPositionToTrack.y - (mScreenSize.height / 2);
+		int lCameraShiftYTarget = mPositionToTrack.y - (mScreenSize.height / 2);
 		int lDecalY = (mCurrentShift.y * -1) - lCameraShiftYTarget;
 		lDecalY = std::min(std::max(lDecalY, -8), 8);
 		lCameraShiftY = (mCurrentShift.y * -1) - lDecalY;
@@ -94,6 +71,47 @@ void Camera::update(unsigned int pTicks)
 	}
 	mCurrentShift.x = lCameraShiftX * -1;
 	mCurrentShift.y = lCameraShiftY * -1;
+}
+
+void Camera::getPositionToTrack()
+{
+	mPositionToTrack = Point(0, 0);
+	if (mItemToTrack != nullptr)
+	{
+		mPositionToTrack = mItemToTrack->getPosition();
+	}
+	else
+	{
+		int lTrackedAvatarsCount = 0;
+		PlayerAvatar* lFirstAvatar = *(mLevel->getPlayerAvatars()->begin());
+		for (PlayerAvatar* lAvatar : *(mLevel->getPlayerAvatars()))
+		{
+			bool lTracked = lAvatar->getTracked();
+			if (lAvatar != lFirstAvatar)
+			{
+				int lDistanceX = std::abs(lFirstAvatar->getPosition().x - lAvatar->getPosition().x);
+				int lDistanceY = std::abs(lFirstAvatar->getPosition().y - lAvatar->getPosition().y);
+				if ((lTracked  && (lDistanceX > 350 ||	lDistanceY > 250)) ||
+					(!lTracked && (lDistanceX < 300 && lDistanceY < 200)))
+				{
+					lTracked = !lTracked;
+				}
+			}
+			else
+			{
+				lTracked = true;
+			}
+			lAvatar->setTracked(lTracked);
+			if (lTracked)
+			{
+				mPositionToTrack.x += lAvatar->getPosition().x;
+				mPositionToTrack.y += lAvatar->getPosition().y;
+				lTrackedAvatarsCount++;
+			} 
+		}
+		mPositionToTrack.x /= lTrackedAvatarsCount;
+		mPositionToTrack.y /= lTrackedAvatarsCount;
+	}
 }
 
 void Camera::uninit()

@@ -44,27 +44,27 @@ void PlayerAvatar::init()
 	lAnimation_tinyrun.addFrame(1);
 	lPlayerSprite.addAnimation(lAnimation_tinyrun);
 
-	SpriteAnimation lAnimation_raccoonrun("run_raccoon");
-	lAnimation_raccoonrun.addFrame(90);
-	lAnimation_raccoonrun.addFrame(90);
-	lAnimation_raccoonrun.addFrame(90);
-	lAnimation_raccoonrun.addFrame(90);
-	lAnimation_raccoonrun.addFrame(91);
-	lAnimation_raccoonrun.addFrame(91);
-	lAnimation_raccoonrun.addFrame(91);
-	lAnimation_raccoonrun.addFrame(91);
-	lPlayerSprite.addAnimation(lAnimation_raccoonrun);
+	SpriteAnimation lAnimation_jetpackrun("run_jetpack");
+	lAnimation_jetpackrun.addFrame(90);
+	lAnimation_jetpackrun.addFrame(90);
+	lAnimation_jetpackrun.addFrame(90);
+	lAnimation_jetpackrun.addFrame(90);
+	lAnimation_jetpackrun.addFrame(91);
+	lAnimation_jetpackrun.addFrame(91);
+	lAnimation_jetpackrun.addFrame(91);
+	lAnimation_jetpackrun.addFrame(91);
+	lPlayerSprite.addAnimation(lAnimation_jetpackrun);
 
-	SpriteAnimation lAnimation_raccoonflight("flight_raccoon");
-	lAnimation_raccoonflight.addFrame(110);
-	lAnimation_raccoonflight.addFrame(110);
-	lAnimation_raccoonflight.addFrame(110);
-	lAnimation_raccoonflight.addFrame(110);
-	lAnimation_raccoonflight.addFrame(111);
-	lAnimation_raccoonflight.addFrame(111);
-	lAnimation_raccoonflight.addFrame(111);
-	lAnimation_raccoonflight.addFrame(111);
-	lPlayerSprite.addAnimation(lAnimation_raccoonflight);
+	SpriteAnimation lAnimation_jetpackflight("flight_jetpack");
+	lAnimation_jetpackflight.addFrame(110);
+	lAnimation_jetpackflight.addFrame(110);
+	lAnimation_jetpackflight.addFrame(110);
+	lAnimation_jetpackflight.addFrame(110);
+	lAnimation_jetpackflight.addFrame(111);
+	lAnimation_jetpackflight.addFrame(111);
+	lAnimation_jetpackflight.addFrame(111);
+	lAnimation_jetpackflight.addFrame(111);
+	lPlayerSprite.addAnimation(lAnimation_jetpackflight);
 
 
 	setSprite(lPlayerSprite);
@@ -140,7 +140,7 @@ void PlayerAvatar::hit(unsigned int pTicks)
 		mUntouchableStartTime = pTicks;
 		mUntouchableRemainingTime = 2000;
 		break;
-	case PlayerAvatarState_Raccoon:
+	case PlayerAvatarState_Jetpack:
 		setForm(PlayerAvatarState_Big);
 		mUntouchable = true;
 		mUntouchableStartTime = pTicks;
@@ -194,7 +194,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 	if (lHitOnBottom)
 	{	
 		bool lWantToMove = false;
-		if (Input::getInstance()->isKeyDown(SDL_SCANCODE_DOWN))
+		if (mTracked && Input::getInstance()->isKeyDown(SDL_SCANCODE_DOWN) && mTracked)
 		{
 			switch (lTileCollision)
 			{
@@ -231,7 +231,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 			}
 			
 		}
-		else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT))
+		else if (mTracked && Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT) && mTracked)
 		{
 			if (lRunning)
 			{
@@ -246,7 +246,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 			mSprite.playAnimation(mRunAnimation);
 			lWantToMove = true;
 		}
-		else if (Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT))
+		else if (mTracked && Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT) && mTracked)
 		{
 			if (lRunning)
 			{
@@ -268,7 +268,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 			else lSpeedX = 0.0f;
 		}
 	}
-	else
+	else if(mTracked)
 	{
 		if (Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT))
 		{
@@ -302,7 +302,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 	float lSpeedY = mSpeed.y;
 	if (lHitOnBottom)
 	{
-		if (Input::getInstance()->isPress(SDL_SCANCODE_SPACE))
+		if (mTracked && Input::getInstance()->isPress(SDL_SCANCODE_SPACE))
 		{
 			lSpeedY = -13.0f;
 			SoundPlayer::getInstance()->playSound("jump");
@@ -315,19 +315,21 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 	}
 	else
 	{
-		if (mPlayerAvatarForm == PlayerAvatarState_Raccoon &&
+		if (mTracked && 
+			mPlayerAvatarForm == PlayerAvatarState_Jetpack &&
 			Input::getInstance()->isKeyDown(SDL_SCANCODE_SPACE) &&
 			lSpeedY > 0.0f)
 		{
  			lSpeedY = 1.0f;
 			
-			mSprite.playAnimation("flight_raccoon");
+			mSprite.playAnimation("flight_jetpack");
 			mUsingParachute = true;
 		}
 		else
 		{
 			lSpeedY += 1.0f;
-			if ((lHitOnLeft && Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT)) || 
+			if (mTracked && 
+				(lHitOnLeft && Input::getInstance()->isKeyDown(SDL_SCANCODE_LEFT)) ||
 				(lHitOnRight && Input::getInstance()->isKeyDown(SDL_SCANCODE_RIGHT)))
 			{
 				lSpeedY = std::min(lSpeedY, 3.0f);
@@ -342,7 +344,7 @@ void PlayerAvatar::updateMoves(unsigned int pTicks)
 		}
 	}
 
-	if (!lHitOnBottom && Input::getInstance()->isPress(SDL_SCANCODE_SPACE))
+	if (mTracked && !lHitOnBottom && Input::getInstance()->isPress(SDL_SCANCODE_SPACE))
 	{
 		if (lHitOnLeft)
 		{
@@ -410,12 +412,12 @@ void PlayerAvatar::setForm(PlayerAvatarForm pPlayerAvatarForm)
 
 		setHitBox(Rectangle(8, 26, -4, -26));
 	break;
-	case PlayerAvatarState_Raccoon:
+	case PlayerAvatarState_Jetpack:
 		mJumpFrame = 93;
 		mWaitFrame = 90;
 		mSliddingFrame = 97;
 		mCrouchedFrame = 94;
-		mRunAnimation = "run_raccoon";
+		mRunAnimation = "run_jetpack";
 
 		setHitBox(Rectangle(8, 26, -4, -26));
 	break;
@@ -444,4 +446,14 @@ void PlayerAvatar::setKilling(unsigned int pTime)
 bool PlayerAvatar::isKilling(unsigned int pTime)
 {
 	return pTime - mKillingTime < 100;
+}
+
+void PlayerAvatar::setTracked(bool pTracked)
+{
+	mTracked = pTracked;
+}
+
+bool PlayerAvatar::getTracked()
+{
+	return mTracked;
 }

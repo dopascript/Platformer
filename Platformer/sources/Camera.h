@@ -26,9 +26,14 @@ namespace Platformer
 
 		Point getShift();
 	protected:
+		void getPositionToTrack();
+		
+
 		Map* mCollisionMap;
 		Point mCurrentShift;
 		Item* mItemToTrack;
+		Point mPositionToTrack;
+		bool mStateOnItem;
 		Size mScreenSize;
 		Level* mLevel;
 	};

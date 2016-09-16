@@ -17,13 +17,6 @@ void Level::setRenderer(SDL_Renderer* pRenderer)
 	mRenderer = pRenderer;
 }
 
-void Level::setScreenSize(Size pSize)
-{
-	mScreenSize = pSize;
-	mScreenHitBox.width = mScreenSize.width;
-	mScreenHitBox.height = mScreenSize.height;
-}
-
 void Level::setGame(Game* pGame)
 {
 	mGame = pGame;
@@ -140,6 +133,11 @@ void Level::draw(SDL_Renderer *pSDL_Renderer, unsigned int pTicks)
 		lItem->draw(pSDL_Renderer, mCamera.getShift(), pTicks);
 	}
 	mFrontDecorsMap->draw(pSDL_Renderer, mCamera.getShift(), mScreenHitBox);
+}
+
+Size Level::getScreenSize()
+{
+	return mScreenSize;
 }
 
 Map* Level::getCollisionMap()

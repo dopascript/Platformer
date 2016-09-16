@@ -64,7 +64,7 @@ void BonusMushroom::update(unsigned int pTicks)
 		if (getAbsolutHitBox().testHit(lHitbox))
 		{
 			SoundPlayer::getInstance()->playSound("power-up");
-			lPlayerAvatar->setForm(PlayerAvatarState_Raccoon);
+			lPlayerAvatar->setForm(PlayerAvatarState_Jetpack);
 			mLevel->removeItem(this);
 			return;
 		}

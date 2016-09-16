@@ -19,7 +19,7 @@ namespace Platformer
 	{
 	public:
 		void setGame(Game* pGame);
-		void setScreenSize(Size pSize);
+		
 		void setRenderer(SDL_Renderer* pRenderer);
 
 		void init();
@@ -31,6 +31,7 @@ namespace Platformer
 
 		std::list<Item*>* getItems();
 
+		Size getScreenSize();
 		Map* getCollisionMap();
 
 		void removeItem(Item *pItem);

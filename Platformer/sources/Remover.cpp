@@ -29,7 +29,8 @@ void Remover::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 {
 	PlayerAvatar* lPlayerAvatar = (PlayerAvatar*)pAvatar;
 	Rectangle lAbsPlayerHitBox = lPlayerAvatar->getAbsolutHitBox(lPlayerAvatar->getPosition());
-	if (getAbsolutHitBox().testHit(lAbsPlayerHitBox))
+	if (getAbsolutHitBox().testHit(lAbsPlayerHitBox) && 
+		mLevel->getPlayerAvatars()->size() > 1)
 	{
 		mLevel->removeItem(pAvatar);
 	}

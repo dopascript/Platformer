@@ -7,7 +7,7 @@
 
 namespace Platformer
 {
-	enum PlayerAvatarForm { PlayerAvatarState_Tiny, PlayerAvatarState_Big, PlayerAvatarState_Raccoon, CollisionTest_Superball };
+	enum PlayerAvatarForm { PlayerAvatarState_Tiny, PlayerAvatarState_Big, PlayerAvatarState_Jetpack, CollisionTest_Superball };
 
 	class PlayerAvatar : public Item
 	{
@@ -23,6 +23,9 @@ namespace Platformer
 		bool isKilling(unsigned int pTime);
 		virtual std::string typeName();
 		virtual Item* createItem();
+
+		void setTracked(bool pTracked);
+		bool getTracked();
 	protected:
 		void kill(unsigned int pTicks);
 		void updateSpecialAppearance(unsigned int pTicks);
@@ -46,6 +49,7 @@ namespace Platformer
 		bool mCrouched;
 		bool mSlidding;
 		unsigned int mKillingTime;
+		bool mTracked;
 	};
 }
 

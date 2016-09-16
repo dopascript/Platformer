@@ -73,8 +73,7 @@ namespace Platformer
 
 		void addItemProximity(Item* pItem);
 		void clearItemsProximity();
-		//Item** itemsInArea();
-		//int itemsInAreaCount();
+
 		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
 	protected:
 		Level *mLevel;
