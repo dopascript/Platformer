@@ -189,7 +189,12 @@ Rectangle Item::getAbsolutHitBox(Point pPosition)
 bool Item::testHitMap(Point pPosition, FPoint pDirection)
 {
 	Rectangle lAbsHitBox = getAbsolutHitBox(pPosition);
-	return mLevel->getCollisionMap()->testHit(lAbsHitBox, pDirection);
+	Map* lCollisionMap = mLevel->getCollisionMap();
+	if (lAbsHitBox.x < 0 || lAbsHitBox.y < 0 || lAbsHitBox.x + lAbsHitBox.width >= lCollisionMap->getSize().width * lCollisionMap->getTileSize())
+	{
+		return true;
+	}
+	return lCollisionMap->testHit(lAbsHitBox, pDirection);
 }
 
 std::vector<Item*> Item::findHitItems(Point pPosition)

@@ -91,8 +91,8 @@ void Camera::getPositionToTrack()
 			{
 				int lDistanceX = std::abs(lFirstAvatar->getPosition().x - lAvatar->getPosition().x);
 				int lDistanceY = std::abs(lFirstAvatar->getPosition().y - lAvatar->getPosition().y);
-				if ((lTracked  && (lDistanceX > 350 ||	lDistanceY > 250)) ||
-					(!lTracked && (lDistanceX < 300 && lDistanceY < 200)))
+				if ((lTracked  && (lDistanceX > 300 ||	lDistanceY > 200)) ||
+					(!lTracked && (lDistanceX < 250 && lDistanceY < 150)))
 				{
 					lTracked = !lTracked;
 				}
