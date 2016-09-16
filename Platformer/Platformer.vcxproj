@@ -99,6 +99,7 @@
     <ClCompile Include="sources\Duplicator.cpp" />
     <ClCompile Include="sources\Game.cpp" />
     <ClCompile Include="sources\ItemsTypesListing.cpp" />
+    <ClCompile Include="sources\Remover.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources/BlocBonus.h" />
@@ -131,6 +132,7 @@
     <ClInclude Include="sources\Door.h" />
     <ClInclude Include="sources\Duplicator.h" />
     <ClInclude Include="sources\Game.h" />
+    <ClInclude Include="sources\Remover.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,6 +8,7 @@
 #include "CircularEnemy.h"
 #include "Door.h"
 #include "Duplicator.h"
+#include "Remover.h"
 
 using namespace Platformer;
 
@@ -22,6 +23,7 @@ void Item::itemsTypesListing()
 	addItemsType(new CircularEnemy());
 	addItemsType(new Door());
 	addItemsType(new Duplicator());
+	addItemsType(new Remover());
 }
 
 void Item::addItemsType(Item *pItem)

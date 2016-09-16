@@ -99,15 +99,11 @@ void Level::removeItems()
 {
 	for (auto &lItemToRemove : mItemsToRemove)
 	{
-		for (auto lItem = mItems.begin(); lItem != mItems.end(); lItem++)
+		if (lItemToRemove->typeName() == "PlayerAvatar")
 		{
-			if ((*lItem) == lItemToRemove)
-			{
-				mItems.erase(lItem);
-				break;
-			}
+			mPlayerAvatars.remove((PlayerAvatar*)lItemToRemove);
 		}
-
+		mItems.remove(lItemToRemove);
 		delete lItemToRemove;
 	}
 	mItemsToRemove.clear();

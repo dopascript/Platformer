@@ -107,6 +107,9 @@
     <ClCompile Include="sources\Duplicator.cpp">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Remover.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sources/Color.h">
@@ -197,6 +200,9 @@
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClInclude>
     <ClInclude Include="sources\Duplicator.h">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\Remover.h">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClInclude>
   </ItemGroup>

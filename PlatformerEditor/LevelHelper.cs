@@ -162,6 +162,10 @@ namespace PlatformerEditor
                         {
                             jsonItem.Add("Name", "Duplicator");
                         }
+                        else if (itemMap.Data[i] == 11)
+                        {
+                            jsonItem.Add("Name", "Remover");
+                        }
 
                         jsonItem.Add("X", x * itemMap.TileSize);
                         jsonItem.Add("Y", y * itemMap.TileSize);
@@ -324,6 +328,10 @@ namespace PlatformerEditor
                 else if (name == "Duplicator")
                 {
                     mapObjects.Data[index] = 10;
+                }
+                else if (name == "Remover")
+                {
+                    mapObjects.Data[index] = 11;
                 }
             }
 
