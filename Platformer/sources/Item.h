@@ -60,6 +60,7 @@ namespace Platformer
 
 		virtual void init(Json::Value pJson) = 0;
 		virtual void update(unsigned int pTicks) = 0;
+		void updateRemoveAnimation(unsigned int pTicks);
 
 		void draw(SDL_Renderer *pSDL_Renderer, Point pCameraShift, int pTime);
 
@@ -75,6 +76,8 @@ namespace Platformer
 		void clearItemsProximity();
 
 		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
+
+		void startRemoveAnimation(unsigned int pTime);
 	protected:
 		Level *mLevel;
 		Sprite mSprite;
@@ -86,6 +89,8 @@ namespace Platformer
 		bool mNeedListItemsProximity;
 		Color mDrawColor;
 		bool mActive;
+		bool mRemoveAnimation;
+		int mRemoveAnimationStartTime;
 
 		Item* mItemsProximity[ITEMS_PROXIMITY_MAX];
 		int mItemsProximityCount;

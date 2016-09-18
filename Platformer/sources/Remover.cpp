@@ -32,7 +32,7 @@ void Remover::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 	if (getAbsolutHitBox().testHit(lAbsPlayerHitBox) && 
 		mLevel->getPlayerAvatars()->size() > 1)
 	{
-		mLevel->removeItem(pAvatar);
+		pAvatar->startRemoveAnimation(pTime);
 	}
 }
 

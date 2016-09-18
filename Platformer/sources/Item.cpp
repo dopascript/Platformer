@@ -16,6 +16,7 @@ Item::Item()
 	mItemsProximityCount = 0;
 	mActive = false;
 	mIsSolid = false;
+	mRemoveAnimation = false;
 	mNeedListItemsProximity = false;
 	mDrawColor = Color(255, 255, 255, 255);
 }
@@ -260,6 +261,19 @@ void Item::clearItemsProximity()
 	mItemsProximityCount = 0;
 }
 
+void Item::updateRemoveAnimation(unsigned int pTicks)
+{
+	int pTimeDiff = pTicks - mRemoveAnimationStartTime;
+	if (pTimeDiff > 500)
+	{
+		mLevel->removeItem(this);
+	}
+	else
+	{
+		mDrawColor.a = 255 - (((float)pTimeDiff) / 500.0f) * 254;
+	}
+}
+
 void Item::draw(SDL_Renderer *pSDL_Renderer, Point pCameraShift, int pTime)
 {
 	SDL_Rect lTextureRectangle = mSprite.getTextureRectangle(pTime).toSDL_Rect();
@@ -295,4 +309,10 @@ bool Item::getIsOnScreen()
 void Item::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 {
 
+}
+
+void Item::startRemoveAnimation(unsigned int pTime)
+{
+	mRemoveAnimation = true;
+	mRemoveAnimationStartTime = pTime;
 }

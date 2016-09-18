@@ -93,7 +93,21 @@ void PlayerAvatar::init(Json::Value pJson)
 
 void PlayerAvatar::update(unsigned int pTicks)
 {
-	if (!mIsDead)
+	if (mRemoveAnimation)
+	{
+		updateRemoveAnimation(pTicks);
+	}
+	else if(mIsDead)
+	{
+		float lSpeedY = mSpeed.y + 0.2f;
+		mSpeed.y = std::min(lSpeedY, 6.0f);
+		move(mSpeed, CollisionTest_None);
+		if (pTicks - mDeathTime > 2000)
+		{
+			mLevel->setLevelToLoad("levels/level1.json", Point(-1, -1));
+		}
+	}
+	else
 	{
 		updateSpecialAppearance(pTicks);
 		updateMoves(pTicks);
@@ -110,16 +124,7 @@ void PlayerAvatar::update(unsigned int pTicks)
 			lItemProximity->onAvatarProximity(pTicks, this);
 		}
 	}
-	else
-	{
-		float lSpeedY = mSpeed.y + 0.2f;
-		mSpeed.y = std::min(lSpeedY, 6.0f);
-		move(mSpeed, CollisionTest_None);
-		if (pTicks - mDeathTime > 2000)
-		{
-			mLevel->setLevelToLoad("levels/level1.json", Point(-1,-1));
-		}
-	}
+	
 }
 
 void PlayerAvatar::hit(unsigned int pTicks)
