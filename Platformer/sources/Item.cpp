@@ -18,6 +18,7 @@ Item::Item()
 	mIsSolid = false;
 	mRemoveAnimation = false;
 	mNeedListItemsProximity = false;
+	mMobile = false;
 	mDrawColor = Color(255, 255, 255, 255);
 }
 
@@ -261,6 +262,18 @@ void Item::clearItemsProximity()
 	mItemsProximityCount = 0;
 }
 
+void Item::update(unsigned int pTicks)
+{
+	if (mMobile)
+	{
+		for (int lItemProximityIndex = 0; lItemProximityIndex < mItemsProximityCount; lItemProximityIndex++)
+		{
+			Item* lItemProximity = mItemsProximity[lItemProximityIndex];
+			lItemProximity->onMobileItemProximity(pTicks, this);
+		}
+	}
+}
+
 void Item::updateRemoveAnimation(unsigned int pTicks)
 {
 	int pTimeDiff = pTicks - mRemoveAnimationStartTime;
@@ -270,7 +283,7 @@ void Item::updateRemoveAnimation(unsigned int pTicks)
 	}
 	else
 	{
-		mDrawColor.a = 255 - (((float)pTimeDiff) / 500.0f) * 254;
+		mDrawColor.a = 255 - (int)((((float)pTimeDiff) / 500.0f) * 254);
 	}
 }
 
@@ -307,6 +320,11 @@ bool Item::getIsOnScreen()
 }
 
 void Item::onAvatarProximity(unsigned int pTime, Item* pAvatar)
+{
+
+}
+
+void Item::onMobileItemProximity(unsigned int pTime, Item* pItem)
 {
 
 }

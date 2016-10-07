@@ -59,7 +59,7 @@ namespace Platformer
 		void move(FPoint pDirection, CollisionTest pCollisionTest);
 
 		virtual void init(Json::Value pJson) = 0;
-		virtual void update(unsigned int pTicks) = 0;
+		virtual void update(unsigned int pTicks);
 		void updateRemoveAnimation(unsigned int pTicks);
 
 		void draw(SDL_Renderer *pSDL_Renderer, Point pCameraShift, int pTime);
@@ -76,6 +76,7 @@ namespace Platformer
 		void clearItemsProximity();
 
 		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
+		virtual void onMobileItemProximity(unsigned int pTime, Item* pItem);
 
 		void startRemoveAnimation(unsigned int pTime);
 	protected:
@@ -91,6 +92,7 @@ namespace Platformer
 		bool mActive;
 		bool mRemoveAnimation;
 		int mRemoveAnimationStartTime;
+		bool mMobile;
 
 		Item* mItemsProximity[ITEMS_PROXIMITY_MAX];
 		int mItemsProximityCount;

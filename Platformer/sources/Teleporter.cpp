@@ -1,17 +1,17 @@
-#include "Door.h"
+#include "Teleporter.h"
 #include "SoundPlayer.h"
 #include "Level.h"
 
 using namespace Platformer;
 
-void Door::init()
+void Teleporter::init()
 {
 	setHitBox(Rectangle(16, 16, 0, -1));
 
 	mSpeed = FPoint(0.0f, 0.0f);
 }
 
-void Door::init(Json::Value pJson)
+void Teleporter::init(Json::Value pJson)
 {
 	init();
 
@@ -31,12 +31,12 @@ void Door::init(Json::Value pJson)
 	}
 }
 
-void Door::update(unsigned int pTicks)
+void Teleporter::update(unsigned int pTicks)
 {
-	
+	Item::update(pTicks);
 }
 
-void Door::onAvatarProximity(unsigned int pTime, Item* pAvatar)
+void Teleporter::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 {
 	PlayerAvatar* lPlayerAvatar = (PlayerAvatar*)pAvatar;
 	Rectangle lAbsPlayerHitBox = lPlayerAvatar->getAbsolutHitBox(lPlayerAvatar->getPosition());
@@ -53,12 +53,12 @@ void Door::onAvatarProximity(unsigned int pTime, Item* pAvatar)
 	}
 }
 
-std::string Door::typeName()
+std::string Teleporter::typeName()
 {
-	return "Door";
+	return "Teleporter";
 }
 
-Item* Door::createItem()
+Item* Teleporter::createItem()
 {
-	return new Door();
+	return new Teleporter();
 }

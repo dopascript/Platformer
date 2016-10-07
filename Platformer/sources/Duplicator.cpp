@@ -26,7 +26,7 @@ void Duplicator::init(Json::Value pJson)
 
 void Duplicator::update(unsigned int pTicks)
 {
-
+	Item::update(pTicks);
 }
 
 void Duplicator::onAvatarProximity(unsigned int pTime, Item* pAvatar)

@@ -95,7 +95,8 @@
     <ClCompile Include="sources\Area.cpp" />
     <ClCompile Include="sources\Camera.cpp" />
     <ClCompile Include="sources\CircularEnemy.cpp" />
-    <ClCompile Include="sources\Door.cpp" />
+    <ClCompile Include="sources\SlideDoor.cpp" />
+    <ClCompile Include="sources\Teleporter.cpp" />
     <ClCompile Include="sources\Duplicator.cpp" />
     <ClCompile Include="sources\Game.cpp" />
     <ClCompile Include="sources\ItemsTypesListing.cpp" />
@@ -129,7 +130,8 @@
     <ClInclude Include="sources\Camera.h" />
     <ClInclude Include="sources\Circle.h" />
     <ClInclude Include="sources\CircularEnemy.h" />
-    <ClInclude Include="sources\Door.h" />
+    <ClInclude Include="sources\SlideDoor.h" />
+    <ClInclude Include="sources\Teleporter.h" />
     <ClInclude Include="sources\Duplicator.h" />
     <ClInclude Include="sources\Game.h" />
     <ClInclude Include="sources\Remover.h" />

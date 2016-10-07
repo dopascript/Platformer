@@ -37,6 +37,7 @@ void EnemyMushroom::init()
 
 	mSpeed = FPoint(-2.1f,0);
 	mIsDead = false;
+	mMobile = true;
 	SoundPlayer::getInstance()->addSound("stomp", "sounds/stomp.wav");
 }
 
@@ -77,6 +78,8 @@ void EnemyMushroom::update(unsigned int pTicks)
 
 		ItemClassicMove(mLevel, this);
 	}
+
+	Item::update(pTicks);
 }
 
 void EnemyMushroom::onAvatarProximity(unsigned int pTime, Item* pAvatar)

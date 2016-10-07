@@ -13,6 +13,7 @@ using namespace Platformer;
 BonusMushroom::BonusMushroom()
 {
 	mBlocOrigine = nullptr;
+	mMobile = true;
 }
 
 void BonusMushroom::setBlocOrigine(Item *pBlocOrigine)
@@ -80,6 +81,8 @@ void BonusMushroom::update(unsigned int pTicks)
 	{
 		ItemClassicMove(mLevel, this);
 	}
+
+	Item::update(pTicks);
 }
 
 std::string BonusMushroom::typeName()

@@ -101,13 +101,16 @@
     <ClCompile Include="sources\AreaManager.cpp">
       <Filter>Fichiers sources\Platformer</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Door.cpp">
-      <Filter>Fichiers sources\Platformer\Items</Filter>
-    </ClCompile>
     <ClCompile Include="sources\Duplicator.cpp">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClCompile>
     <ClCompile Include="sources\Remover.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Teleporter.cpp">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\SlideDoor.cpp">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClCompile>
   </ItemGroup>
@@ -196,13 +199,16 @@
     <ClInclude Include="sources\AreaManager.h">
       <Filter>Fichiers sources\Platformer</Filter>
     </ClInclude>
-    <ClInclude Include="sources\Door.h">
-      <Filter>Fichiers sources\Platformer\Items</Filter>
-    </ClInclude>
     <ClInclude Include="sources\Duplicator.h">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClInclude>
     <ClInclude Include="sources\Remover.h">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\Teleporter.h">
+      <Filter>Fichiers sources\Platformer\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\SlideDoor.h">
       <Filter>Fichiers sources\Platformer\Items</Filter>
     </ClInclude>
   </ItemGroup>

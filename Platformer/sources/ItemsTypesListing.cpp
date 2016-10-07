@@ -6,9 +6,10 @@
 #include "PlayerAvatar.h"
 #include "CoinBonus.h"
 #include "CircularEnemy.h"
-#include "Door.h"
+#include "Teleporter.h"
 #include "Duplicator.h"
 #include "Remover.h"
+#include "SlideDoor.h"
 
 using namespace Platformer;
 
@@ -21,9 +22,10 @@ void Item::itemsTypesListing()
 	addItemsType(new PlayerAvatar());
 	addItemsType(new CoinBonus());
 	addItemsType(new CircularEnemy());
-	addItemsType(new Door());
+	addItemsType(new Teleporter());
 	addItemsType(new Duplicator());
 	addItemsType(new Remover());
+	addItemsType(new SlideDoor());
 }
 
 void Item::addItemsType(Item *pItem)

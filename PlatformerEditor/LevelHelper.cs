@@ -156,7 +156,7 @@ namespace PlatformerEditor
                         }
                         else if (itemMap.Data[i] == 9)
                         {
-                            jsonItem.Add("Name", "Door");
+                            jsonItem.Add("Name", "Teleporter");
                         }
                         else if (itemMap.Data[i] == 10)
                         {
@@ -165,6 +165,18 @@ namespace PlatformerEditor
                         else if (itemMap.Data[i] == 11)
                         {
                             jsonItem.Add("Name", "Remover");
+                        }
+                        else if (itemMap.Data[i] == 12)
+                        {
+                            jsonItem.Add("Name", "SlideDoor");
+                        }
+                        else if (itemMap.Data[i] == 13)
+                        {
+                            jsonItem.Add("Name", "Interuptor");
+                        }
+                        else if (itemMap.Data[i] == 14)
+                        {
+                            jsonItem.Add("Name", "Door");
                         }
 
                         jsonItem.Add("X", x * itemMap.TileSize);
@@ -321,7 +333,7 @@ namespace PlatformerEditor
                 {
                     mapObjects.Data[index] = 8;
                 }
-                else if (name == "Door")
+                else if (name == "Teleporter")
                 {
                     mapObjects.Data[index] = 9;
                 }
@@ -332,6 +344,18 @@ namespace PlatformerEditor
                 else if (name == "Remover")
                 {
                     mapObjects.Data[index] = 11;
+                }
+                else if (name == "SlideDoor")
+                {
+                    mapObjects.Data[index] = 12;
+                }
+                else if (name == "Interuptor")
+                {
+                    mapObjects.Data[index] = 13;
+                }
+                else if (name == "Door")
+                {
+                    mapObjects.Data[index] = 14;
                 }
             }
 

@@ -54,7 +54,7 @@ void CoinBonus::init(Json::Value pJson)
 
 void CoinBonus::update(unsigned int pTicks)
 {
-
+	Item::update(pTicks);
 }
 
 void CoinBonus::onAvatarProximity(unsigned int pTime, Item* pAvatar)

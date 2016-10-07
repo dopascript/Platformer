@@ -75,6 +75,7 @@ void PlayerAvatar::init()
 	mNeedListItemsProximity = true;
 	mKillingTime = 0;
 	mDeathTime = 0;
+	mMobile = true;
 
 	setForm(PlayerAvatarState_Tiny);
 
@@ -124,7 +125,7 @@ void PlayerAvatar::update(unsigned int pTicks)
 			lItemProximity->onAvatarProximity(pTicks, this);
 		}
 	}
-	
+	Item::update(pTicks);
 }
 
 void PlayerAvatar::hit(unsigned int pTicks)

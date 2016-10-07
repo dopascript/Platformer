@@ -57,6 +57,8 @@ void CircularEnemy::update(unsigned int pTicks)
 			lPlayerAvatar->hit(pTicks);
 		}
 	}
+
+	Item::update(pTicks);
 }
 
 std::string CircularEnemy::typeName()

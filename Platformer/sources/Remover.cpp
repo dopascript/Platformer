@@ -22,7 +22,7 @@ void Remover::init(Json::Value pJson)
 
 void Remover::update(unsigned int pTicks)
 {
-
+	Item::update(pTicks);
 }
 
 void Remover::onAvatarProximity(unsigned int pTime, Item* pAvatar)

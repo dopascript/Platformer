@@ -1,13 +1,13 @@
-#ifndef DOOR_H
-#define DOOR_H
+#ifndef SLIDEDOOR_H
+#define SLIDEDOOR_H
 
 #include <json/json.h>
-
+#include "ImageLibrary.h"
 #include "Item.h"
 
 namespace Platformer
 {
-	class Door : public Item
+	class SlideDoor : public Item
 	{
 	public:
 		void init();
@@ -15,10 +15,8 @@ namespace Platformer
 		virtual void update(unsigned int pTicks);
 		virtual std::string typeName();
 		virtual Item* createItem();
-		virtual void onAvatarProximity(unsigned int pTime, Item* pAvatar);
 	protected:
-		std::string mLevelPath;
-		Point mAvatarPosition;
+		Size mSize;
 	};
 }
 

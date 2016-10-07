@@ -86,6 +86,15 @@
       "Y": 176
     },
     {
+      "Name": "MobilePlatform",
+      "X": 960,
+      "Y": 192,
+      "speedX": 2,
+      "speedY": 0,
+      "destinationX": 200,
+      "destinationY": 0
+    },
+    {
       "Name": "CoinBonus",
       "X": 1392,
       "Y": 192
@@ -108,7 +117,11 @@
     {
       "Name": "MobilePlatform",
       "X": 1184,
-      "Y": 240
+      "Y": 240,
+      "speedX": 0,
+      "speedY": 2,
+      "destinationX": 0,
+      "destinationY": 200
     },
     {
       "Name": "EnemyMushroom",
@@ -134,12 +147,6 @@
       "Name": "Remover",
       "X": 768,
       "Y": 336
-    },
-    {
-      "Name": "PlayerAvatar",
-      "X": 96,
-      "Y": 352,
-      "state": "bonjour"
     },
     {
       "Name": "CoinBonus",
@@ -244,6 +251,11 @@
       "Y": 432
     },
     {
+      "Name": "PlayerAvatar",
+      "X": 992,
+      "Y": 432
+    },
+    {
       "Name": "CoinBonus",
       "X": 976,
       "Y": 448
@@ -289,7 +301,7 @@
       "Y": 496
     },
     {
-      "Name": "Door",
+      "Name": "Teleporter",
       "X": 160,
       "Y": 512,
       "AvatarPositionX": 42,
@@ -314,6 +326,13 @@
       "Name": "CoinBonus",
       "X": 336,
       "Y": 528
+    },
+    {
+      "Name": "SlideDoor",
+      "X": 1136,
+      "Y": 528,
+      "Width": 16,
+      "Height": 64
     },
     {
       "Name": "CoinBonus",

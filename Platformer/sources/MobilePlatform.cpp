@@ -35,17 +35,17 @@ void MobilePlatform::init(Json::Value pJson)
 	int lY = pJson["Y"].asInt();
 	setPosition(Point(lX, lY));
 
-	setSpeed(FPoint(0.0f, -2.0f));
+	setSpeed(FPoint(pJson["speedX"].asInt(), pJson["speedY"].asInt()));
 	setStartPosition(Point(lX, lY));
 
 	MobilePlatformTrigger trigger1;
-	trigger1.mDirection = FPoint(0.0f, 2.0f);
+	trigger1.mDirection = FPoint(pJson["speedX"].asInt(), pJson["speedY"].asInt());
 	trigger1.mTriggerPosition = Point(lX, lY);
 	addMobilePlatformTrigger(trigger1);
 
 	MobilePlatformTrigger trigger2;
-	trigger2.mDirection = FPoint(0.0f, -2.0f);
-	trigger2.mTriggerPosition = Point(lX, lY + 200);
+	trigger2.mDirection = FPoint(pJson["speedX"].asInt() * -1, pJson["speedY"].asInt() * -1);
+	trigger2.mTriggerPosition = Point(lX + pJson["destinationX"].asInt(), lY + pJson["destinationY"].asInt());
 	addMobilePlatformTrigger(trigger2);
 }
 

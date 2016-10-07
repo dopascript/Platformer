@@ -70,6 +70,8 @@ void BlocBonus::update(unsigned int pTicks)
 	{
 		mSpeed.y = lSpeedY;
 	}
+
+	Item::update(pTicks);
 }
 
 void BlocBonus::onAvatarProximity(unsigned int pTime, Item* pAvatar)
